@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import "./globals.css";
-
+import CardCurso from "@/components/CardCurso";
 import Image from "next/image";
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
                             jogador melhor</h2>
                         </section>
                         <section className="paragrafo">
-                            <p>O Passo de Mestre é o seu aliado no aprendizado e <br/> 
+                            <p>O Passo de Mestre é o seu aliado no aprendizado e <br/>
                             aperfeiçoamento do xadrez. Aqui você encontra cursos <br/>
                             completos, táticas estratégicas e muito mais.</p>
                         </section>
@@ -45,7 +45,7 @@ export default function Home() {
             <div className="blocos">
                 <div className="bloco">
                     <section className="bloco-imagem">
-                        <i class="bi bi-mortarboard"></i>
+                        <i className="bi bi-mortarboard"></i>
                     </section>
                     <section className="bloco-texto">
                         <h3>Cursos completos</h3>
@@ -79,6 +79,7 @@ export default function Home() {
                     <p>Treinamentos ideias para o seu nível.</p>
                 </section>
             </div>
+            <CardCurso />
             </div>
         </main>
     </>
