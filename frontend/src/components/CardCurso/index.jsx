@@ -1,10 +1,11 @@
 "use client";
-
+import { aplicarEstilo } from "@backend/utils/cursos.js"
 import Link from "next/link";
 import "./CardCurso.css?v=1";
 
 export default function CardCurso(){
-    return (    
+    aplicarEstilo();
+    return (
     <div>
         <div className="secao-cabecalho">
             <div className="cabecalho-titulo">

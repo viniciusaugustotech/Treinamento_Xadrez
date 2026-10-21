@@ -1,0 +1,486 @@
+.aulas-pagina {
+    width: 100%;
+    min-height: 100vh;
+    padding: 30px 5%;
+    margin: 0 auto;
+    color: #193955;
+    background-color: #f5f7fa;
+}
+
+.aulas-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #dce5ed;
+}
+
+.aulas-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #315f87;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.aulas-voltar:hover {
+    color: #ff4b1f;
+}
+
+.aulas-identificacao {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    color: #718394;
+    font-size: 13px;
+}
+
+.aulas-identificacao i {
+    font-size: 10px;
+}
+
+.aulas-identificacao span:last-child {
+    color: #193955;
+    font-weight: 700;
+}
+
+.aulas-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    align-items: start;
+    gap: 30px;
+}
+
+.aulas-conteudo {
+    min-width: 0;
+}
+
+.aulas-video {
+    width: 100%;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    background-color: #07111f;
+    box-shadow: 0 8px 25px rgba(25, 57, 85, 0.08);
+}
+
+.aulas-video video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #07111f;
+}
+
+.aulas-informacoes {
+    padding: 30px 0;
+}
+
+.aulas-etiquetas {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.aulas-tag {
+    padding: 7px 13px;
+    border-radius: 20px;
+    background-color: #e2edf7;
+    color: #315f87;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.aulas-duracao {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #728496;
+    font-size: 13px;
+}
+
+.aulas-duracao i {
+    color: #ff4b1f;
+    font-size: 16px;
+}
+
+.aulas-informacoes h1 {
+    margin: 0 0 15px;
+    color: #193955;
+    font-size: clamp(25px, 3vw, 34px);
+    font-weight: 800;
+    line-height: 1.25;
+}
+
+.aulas-informacoes > p {
+    max-width: 800px;
+    margin: 0;
+    color: #627587;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.aulas-objetivos {
+    padding: 25px;
+    margin-top: 30px;
+    border: 1px solid #e1e8ef;
+    border-radius: 14px;
+    background-color: #ffffff;
+}
+
+.aulas-objetivos h2 {
+    margin: 0 0 20px;
+    color: #193955;
+    font-size: 19px;
+    font-weight: 800;
+}
+
+.aulas-objetivos div {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+    color: #536b7f;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.aulas-objetivos div:last-child {
+    margin-bottom: 0;
+}
+
+.aulas-objetivos i {
+    margin-top: 2px;
+    color: #315f87;
+    font-size: 16px;
+}
+
+.aulas-navegacao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.aulas-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 20px;
+    border: 1px solid #ff4b1f;
+    border-radius: 9px;
+    background-color: #ff4b1f;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.aulas-botao:hover {
+    background-color: #e83b12;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.aulas-botao-secundario {
+    border-color: #d5e0e9;
+    background-color: #ffffff;
+    color: #315f87;
+}
+
+.aulas-botao-secundario:hover {
+    border-color: #315f87;
+    background-color: #edf4fa;
+    color: #193955;
+}
+
+.aulas-sidebar {
+    overflow: hidden;
+    border: 1px solid #dfe7ee;
+    border-radius: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 25px rgba(25, 57, 85, 0.04);
+}
+
+.aulas-sidebar-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 22px;
+    border-bottom: 1px solid #e8edf2;
+}
+
+.aulas-sidebar-cabecalho h2 {
+    margin: 0 0 7px;
+    color: #193955;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.aulas-sidebar-cabecalho p {
+    margin: 0;
+    color: #7a8c9b;
+    font-size: 12px;
+}
+
+.aulas-sidebar-cabecalho > i {
+    color: #547fa3;
+    font-size: 22px;
+}
+
+.aulas-progresso {
+    padding: 20px 22px;
+    border-bottom: 1px solid #e8edf2;
+    background-color: #f8fafc;
+}
+
+.aulas-progresso-texto {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #536b7f;
+    font-size: 13px;
+}
+
+.aulas-progresso-texto strong {
+    color: #315f87;
+    font-size: 14px;
+}
+
+.aulas-barra {
+    width: 100%;
+    height: 7px;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #dce5ed;
+}
+
+.aulas-barra-preenchimento {
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: #ff4b1f;
+}
+
+.aulas-progresso > p {
+    margin: 10px 0 0;
+    color: #8796a3;
+    font-size: 12px;
+}
+
+.aulas-modulo {
+    border-bottom: 1px solid #e8edf2;
+}
+
+.aulas-modulo:last-child {
+    border-bottom: none;
+}
+
+.aulas-modulo-titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px;
+    background-color: #ffffff;
+}
+
+.aulas-modulo-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    background-color: #e7f0f8;
+    color: #315f87;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.aulas-modulo-titulo > div:nth-child(2) {
+    flex: 1;
+    min-width: 0;
+}
+
+.aulas-modulo-titulo h3 {
+    margin: 0 0 6px;
+    color: #193955;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.aulas-modulo-titulo p {
+    margin: 0;
+    color: #8796a3;
+    font-size: 11px;
+}
+
+.aulas-modulo-titulo > i {
+    color: #718394;
+    font-size: 12px;
+}
+
+.aulas-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 14px 18px 14px 25px;
+    border-left: 3px solid transparent;
+    color: #5d7183;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.aulas-item:hover {
+    background-color: #f4f8fb;
+    color: #193955;
+}
+
+.aulas-item > i:first-child {
+    margin-top: 2px;
+    color: #8294a4;
+    font-size: 16px;
+}
+
+.aulas-item > div {
+    flex: 1;
+    min-width: 0;
+}
+
+.aulas-item > div span {
+    display: block;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.aulas-item > div small {
+    display: block;
+    margin-top: 5px;
+    color: #93a0ac;
+    font-size: 11px;
+}
+
+.aulas-item > i:last-child:not(:first-child) {
+    margin-top: 2px;
+    color: #ff4b1f;
+    font-size: 16px;
+}
+
+.aulas-item-ativa {
+    border-left-color: #ff4b1f;
+    background-color: #fff1ec;
+    color: #193955;
+    font-weight: 700;
+}
+
+.aulas-item-ativa > i:first-child {
+    color: #ff4b1f;
+}
+
+@media (max-width: 1100px) {
+    .aulas-layout {
+        grid-template-columns: minmax(0, 1fr) 320px;
+        gap: 20px;
+    }
+
+    .aulas-sidebar-cabecalho,
+    .aulas-progresso {
+        padding-right: 17px;
+        padding-left: 17px;
+    }
+
+    .aulas-modulo-titulo {
+        gap: 9px;
+        padding: 15px;
+    }
+
+    .aulas-item {
+        padding-right: 13px;
+        padding-left: 18px;
+    }
+}
+
+@media (max-width: 850px) {
+    .aulas-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .aulas-sidebar {
+        width: 100%;
+    }
+
+    .aulas-informacoes {
+        padding-bottom: 15px;
+    }
+}
+
+@media (max-width: 550px) {
+    .aulas-pagina {
+        padding: 20px 4%;
+    }
+
+    .aulas-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+        padding-bottom: 20px;
+    }
+
+    .aulas-identificacao {
+        font-size: 12px;
+    }
+
+    .aulas-video {
+        border-radius: 10px;
+    }
+
+    .aulas-informacoes h1 {
+        font-size: 26px;
+    }
+
+    .aulas-informacoes > p {
+        font-size: 14px;
+    }
+
+    .aulas-objetivos {
+        padding: 20px;
+    }
+
+    .aulas-objetivos h2 {
+        font-size: 17px;
+    }
+
+    .aulas-objetivos div {
+        font-size: 13px;
+    }
+
+    .aulas-navegacao {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .aulas-botao {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .aulas-sidebar-cabecalho h2 {
+        font-size: 17px;
+    }
+}

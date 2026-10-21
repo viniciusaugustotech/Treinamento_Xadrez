@@ -72,7 +72,7 @@
     justify-content: center;
 
     padding: 6px 12px;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #547FA3;
 
     color: #FFFFFF;
@@ -282,3 +282,15 @@
       gap: 12px;
     }
   }
+
+.tag.iniciante {
+    background-color: #198754;
+}
+
+.tag.intermediario {
+    background-color: #547FA3;
+}
+
+.tag.avancado {
+    background-color: #6f42c1;
+}
