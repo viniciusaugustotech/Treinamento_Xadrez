@@ -4,8 +4,21 @@ import Link from "next/link";
 import "./CardCurso.css?v=1";
 
 export default function CardCurso(){
-    return (
-    <div className="cursos">
+    return (    
+    <div>
+        <div className="secao-cabecalho">
+            <div className="cabecalho-titulo">
+                <div className="linha-destaque"></div>
+                <h1>Cursos em Destaque</h1>
+            </div>
+            <div className="cabecalho-link">
+                <a href="/cursos" className="ver-todos">
+                Ver todos os cursos 
+                <i className="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        <div className="cursos">
                 <div className="curso">
                     <div className="curso-capa">
                         <section className="tag">
@@ -186,5 +199,6 @@ export default function CardCurso(){
                     </div>
                 </div>
             </div>
+    </div>
     )
 }

@@ -1,0 +1,32 @@
+{
+  "name": "api-produtos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+<<<<<<< HEAD
+    "dev": "node --watch server.js"
+=======
+    "dev":"node --watch server.js"
+>>>>>>> c73e98f51968fb9f7c1d751988ff243af4cbe095
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+<<<<<<< HEAD
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "express": "^5.3.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+=======
+    "express": "^5.3.0",
+>>>>>>> c73e98f51968fb9f7c1d751988ff243af4cbe095
+    "multer": "^2.4.0",
+    "mysql2": "^3.24.4"
+  }
+}
