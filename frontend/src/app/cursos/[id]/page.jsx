@@ -1,11 +1,20 @@
 "use client";
 
-import { aplicarEstilo } from "@backend/utils/cursos.js";
+import { use } from "react";
+import { useParams } from "next/navigation";
+import cursos from "../../../../../backend/data/banco.js";
 import Link from "next/link";
 import "./detalhes.css";
 
 export default function DetalhesCurso() {
-    aplicarEstilo();
+
+    const params = useParams();
+    const idCurso = params.id;
+    const curso = cursos.find(item => String(item.id) === String(idCurso));
+
+    if (!curso) {
+        return <div className="detalhes-pagina"><p>Curso não encontrado</p></div>
+    }
 
     return (
         <div className="detalhes-pagina">
@@ -21,28 +30,26 @@ export default function DetalhesCurso() {
                 <div className="detalhes-info">
                     <span className="detalhes-tag">Iniciante</span>
 
-                    <h1>Fundamentos do Xadrez</h1>
+                    <h1>{curso.titulo}</h1>
 
                     <p>
-                        Aprenda as regras, os movimentos das peças e os
-                        conceitos básicos para começar a jogar xadrez
-                        com confiança.
+                        {curso.descricao}
                     </p>
 
                     <div className="detalhes-metricas">
                         <div>
                             <i className="bi bi-clipboard-data"></i>
-                            <span>5 módulos</span>
+                            <span>{curso.modulos} módulos</span>
                         </div>
 
                         <div>
                             <i className="bi bi-clock"></i>
-                            <span>2h 30min</span>
+                            <span>{curso.duracao}</span>
                         </div>
 
                         <div>
                             <i className="bi bi-play-circle"></i>
-                            <span>20 aulas</span>
+                            <span>{curso.aulas} aulas</span>
                         </div>
                     </div>
 
@@ -54,7 +61,7 @@ export default function DetalhesCurso() {
 
                 <div className="detalhes-capa">
                     <img
-                        src="/imagens/fundamentos.jpg"
+                        src="/imagens/cursos/fundamentos.jpg"
                         alt="Capa do curso Fundamentos do Xadrez"
                     />
                 </div>
@@ -66,11 +73,11 @@ export default function DetalhesCurso() {
                         <h2>Sobre o curso</h2>
 
                         <p>
-                            Este curso foi desenvolvido para quem deseja
-                            aprender xadrez desde o início. Você conhecerá
-                            o tabuleiro, os movimentos das peças, as regras
-                            fundamentais e os primeiros princípios para
-                            desenvolver suas partidas.
+                            {curso.descricao_longa.map((paragrafo, index) => {
+                                <p key={index}>
+                                    {paragrafo}
+                                </p>
+                            })}
                         </p>
 
                         <p>
