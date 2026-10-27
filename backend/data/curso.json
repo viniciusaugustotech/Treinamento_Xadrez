@@ -1,21 +1,27 @@
-const cursos = 
-[ 
-    {
-      "id": 1,
-      "tag": "Iniciante",
-      "titulo": "Fundamentos do Xadrez",
-      "descricao": "Aprenda as regras, os movimentos das peças e conceitos básicos para começar a jogar com confiança.",
-      "modulos": 5,
-      "duracao": "2h 30min",
-      "aulas": 20,
-      "descricao_longa": [
-        "Este curso foi desenvolvido para quem deseja aprender xadrez desde o início. Você conhecerá o tabuleiro, os movimentos das peças, as regras fundamentais e os primeiros princípios para desenvolver suas partidas.Ao longo das aulas, você aprenderá a analisar jogadas, proteger suas peças e compreender melhor as possibilidades de cada movimento.",
-        "Ao longo das aulas, você aprenderá a analisar jogadas, proteger suas peças e compreender melhor as possibilidades de cada movimento."
-      ],
-      "imagem": "/imagens/cursos/fundamentos.jpg"
-    },
+[
   {
-    "id": 2,
+    "id_curso": 1,
+    "tag": "Iniciante",
+    "titulo": "Fundamentos do Xadrez",
+    "descricao": "Aprenda as regras, os movimentos das peças e conceitos básicos para começar a jogar com confiança.",
+    "modulos": 5,
+    "duracao": "2h 30min",
+    "aulas": 20,
+    "descricao_longa": [
+      "Este curso foi desenvolvido para quem deseja aprender xadrez desde o início. Você conhecerá o tabuleiro, os movimentos das peças, as regras fundamentais e os primeiros princípios para desenvolver suas partidas.Ao longo das aulas, você aprenderá a analisar jogadas, proteger suas peças e compreender melhor as possibilidades de cada movimento.",
+      "Ao longo das aulas, você aprenderá a analisar jogadas, proteger suas peças e compreender melhor as possibilidades de cada movimento."
+    ],
+    "resumo_conteudo": [
+      "Conhecer o tabuleiro e as peças",
+      "Entender os movimentos de cada peça",
+      "Aprender as regras fundamentais do jogo",
+      "Compreender xeque, xeque-mate e empate",
+      "Desenvolver suas primeiras estratégias"
+    ],
+    "imagem": "/imagens/cursos/fundamentos.jpg"
+  },
+  {
+    "id_curso": 2,
     "tag": "Intermediário",
     "titulo": "Táticas e Combinações",
     "descricao": "Desenvolva seu olhar tático e aprenda as principais combinações para decidir partidas.",
@@ -26,10 +32,17 @@ const cursos =
       "Neste curso, você desenvolverá sua capacidade de identificar oportunidades táticas e encontrar combinações que podem mudar o rumo de uma partida. Aprenda a reconhecer padrões como garfos, cravadas, ataques descobertos e desvios, utilizando essas ferramentas para criar ameaças e conquistar vantagens sobre seu adversário.",
       "Ao longo das aulas, você praticará o cálculo de variantes e a análise de diferentes possibilidades antes de realizar uma jogada. Aprenda a identificar erros do oponente, aproveitar peças desprotegidas e construir sequências de lances precisas para transformar oportunidades em vitórias."
     ],
+    "resumo_conteudo": [
+      "Identificar oportunidades táticas na partida",
+      "Reconhecer padrões como garfos, cravadas e ataques descobertos",
+      "Praticar o cálculo de variantes e análises prévias",
+      "Aproveitar erros e peças desprotegidas do oponente",
+      "Construir sequências de lances precisas para a vitória"
+    ],
     "imagem": "/imagens/cursos/taticas.jpg"
   },
   {
-    "id": 3,
+    "id_curso": 3,
     "tag": "Avançado",
     "titulo": "Estratégia e Posicionamento",
     "descricao": "Entenda os planos estratégicos e como controlar o centro, as colunas e as peças maiores.",
@@ -40,10 +53,17 @@ const cursos =
       "Este curso é voltado para quem deseja aprofundar sua compreensão estratégica no xadrez. Aprenda a avaliar posições, controlar casas importantes do tabuleiro e explorar vantagens como espaço, estrutura de peões e atividade das peças. Entenda como o domínio do centro e das colunas abertas pode ajudar na construção de planos eficientes.",
       "Durante o curso, você estudará como coordenar suas peças, identificar pontos fracos na posição adversária e escolher planos de longo prazo de acordo com as características de cada partida. Desenvolva uma visão mais completa do jogo e aprenda a transformar pequenas vantagens posicionais em oportunidades concretas de vitória."
     ],
+    "resumo_conteudo": [
+      "Avaliar posições e controlar casas estratégicas",
+      "Explorar a estrutura de peões e a atividade das peças",
+      "Dominar o centro e as colunas abertas do tabuleiro",
+      "Coordenar peças e identificar fraquezas do adversário",
+      "Desenvolver planos de longo prazo e converter vantagens posicionais"
+    ],
     "imagem": "/imagens/cursos/estrategia.jpg"
   },
   {
-    "id": 4,
+    "id_curso": 4,
     "tag": "Intermediário",
     "titulo": "Aberturas Clássicas",
     "descricao": "Estude as principais aberturas e aprenda a escolher a melhor opção para o seu estilo de jogo.",
@@ -54,8 +74,13 @@ const cursos =
       "Neste curso, você conhecerá as principais aberturas clássicas do xadrez e compreenderá os objetivos por trás dos primeiros lances. Estude sistemas tradicionais, como a Abertura Italiana, a Espanhola e o Gambito da Dama, aprendendo como desenvolver as peças, disputar o centro e garantir a segurança do rei desde o início da partida.",
       "Ao longo das aulas, você aprenderá a reconhecer ideias típicas de cada abertura, evitar erros comuns e identificar as transições para o meio-jogo. Descubra como escolher sistemas compatíveis com seu estilo de jogo e construir uma preparação inicial sólida para enfrentar diferentes adversários com mais confiança."
     ],
+    "resumo_conteudo": [
+      "Compreender os objetivos dos primeiros lances da partida",
+      "Estudar sistemas clássicos (Italiana, Espanhola e Gambito da Dama)",
+      "Desenvolver peças com eficiência e proteger o rei",
+      "Identificar transições adequadas para o meio-jogo",
+      "Escolher aberturas compatíveis com seu estilo de jogo"
+    ],
     "imagem": "/imagens/cursos/abertura.jpeg"
   }
 ]
-
-export default cursos;

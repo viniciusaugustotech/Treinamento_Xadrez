@@ -1,8 +1,8 @@
 "use client";
-import cursos from "../../../../backend/data/banco.js"
 import { aplicarEstilo } from "@backend/utils/cursos.js"
 import Link from "next/link";
 import "./CardCurso.css?v=1";
+const cursos = require("../../../../backend/data/curso.json");
 
 export default function CardCurso(){
     aplicarEstilo(".tag");
@@ -48,7 +48,7 @@ export default function CardCurso(){
                             <p>{item.duracao}</p>
                         </section>
                         <section className="botao">
-                            <Link href={"/cursos/" + item.id}>
+                            <Link href={"/cursos/" + item.id_curso}>
                                 <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
                                 viewBox="0 0 24 24" 

@@ -1,10 +1,12 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import cursos from "../../../../../backend/data/banco.js";
 import Link from "next/link";
 import "./detalhes.css";
 import { aplicarEstilo } from "@backend/utils/cursos.js";
+const cursos = require("../../../../../backend/data/curso.json");
+const modulos = require("../../../../../backend/data/modulo.json");
+const aulas = require("../../../../../backend/data/aulas.json");
 
 export default function DetalhesCurso() {
 
@@ -12,7 +14,7 @@ export default function DetalhesCurso() {
 
     const params = useParams();
     const idCurso = params.id;
-    const curso = cursos.find(item => String(item.id) === String(idCurso));
+    const curso = cursos.find(item => String(item.id_curso) === String(idCurso));
 
     if (!curso) {
         return <div className="detalhes-pagina"><p>Curso não encontrado</p></div>
@@ -63,7 +65,7 @@ export default function DetalhesCurso() {
 
                 <div className="detalhes-capa">
                     <img
-                        src="/imagens/cursos/fundamentos.jpg"
+                        src={curso.imagem}
                         alt="Capa do curso Fundamentos do Xadrez"
                     />
                 </div>
@@ -86,30 +88,12 @@ export default function DetalhesCurso() {
                         <h2>O que você vai aprender</h2>
 
                         <div className="detalhes-aprendizado">
-                            <p>
+                            {curso.resumo_conteudo.map((lista, index) => (
+                                <p key={index}>
                                 <i className="bi bi-check-circle-fill"></i>
-                                Conhecer o tabuleiro e as peças
+                                {lista}
                             </p>
-
-                            <p>
-                                <i className="bi bi-check-circle-fill"></i>
-                                Entender os movimentos de cada peça
-                            </p>
-
-                            <p>
-                                <i className="bi bi-check-circle-fill"></i>
-                                Aprender as regras fundamentais do jogo
-                            </p>
-
-                            <p>
-                                <i className="bi bi-check-circle-fill"></i>
-                                Compreender xeque, xeque-mate e empate
-                            </p>
-
-                            <p>
-                                <i className="bi bi-check-circle-fill"></i>
-                                Desenvolver suas primeiras estratégias
-                            </p>
+                            ))}
                         </div>
                     </section>
 
@@ -124,210 +108,34 @@ export default function DetalhesCurso() {
                         </p>
 
                         <div className="detalhes-modulos">
-                            <div className="detalhes-modulo">
+                            {modulos[idCurso].map((mod, index) => (
+                                <div className="detalhes-modulo" key={index}>
                                 <div className="detalhes-modulo-topo">
                                     <div className="detalhes-modulo-numero">
-                                        <span>01</span>
+                                        <span>{mod.ordem}</span>
                                     </div>
 
                                     <div className="detalhes-modulo-info">
-                                        <h3>Conhecendo o xadrez</h3>
-                                        <p>4 aulas · 25 minutos</p>
+                                        <h3>{mod.titulo}</h3>
+                                        <p>{mod.aulas_qtd} aulas · {mod.duracao}</p>
                                     </div>
 
                                     <i className="bi bi-chevron-down"></i>
                                 </div>
 
                                 <div className="detalhes-aulas">
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Introdução ao xadrez</span>
-                                        <span>5 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>O tabuleiro e suas casas</span>
-                                        <span>7 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Organização das peças</span>
-                                        <span>6 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Preparando uma partida</span>
-                                        <span>7 min</span>
-                                    </div>
+                                    {
+                                        aulas[mod.id_modulo].map((aula, index) => (
+                                            <div key={index}>
+                                                <i className="bi bi-play-circle"></i>
+                                                <span>{aula.titulo}</span>
+                                                <span>{aula.duracao}</span>
+                                            </div>
+                                        ))
+                                    }
                                 </div>
                             </div>
-
-                            <div className="detalhes-modulo">
-                                <div className="detalhes-modulo-topo">
-                                    <div className="detalhes-modulo-numero">
-                                        <span>02</span>
-                                    </div>
-
-                                    <div className="detalhes-modulo-info">
-                                        <h3>Movimentos das peças</h3>
-                                        <p>5 aulas · 35 minutos</p>
-                                    </div>
-
-                                    <i className="bi bi-chevron-down"></i>
-                                </div>
-
-                                <div className="detalhes-aulas">
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Movimento dos peões</span>
-                                        <span>7 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Torres e bispos</span>
-                                        <span>7 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Cavalos e seus movimentos</span>
-                                        <span>7 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Dama e rei</span>
-                                        <span>7 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Exercícios práticos</span>
-                                        <span>7 min</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="detalhes-modulo">
-                                <div className="detalhes-modulo-topo">
-                                    <div className="detalhes-modulo-numero">
-                                        <span>03</span>
-                                    </div>
-
-                                    <div className="detalhes-modulo-info">
-                                        <h3>Regras fundamentais</h3>
-                                        <p>4 aulas · 30 minutos</p>
-                                    </div>
-
-                                    <i className="bi bi-chevron-down"></i>
-                                </div>
-
-                                <div className="detalhes-aulas">
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Captura de peças</span>
-                                        <span>7 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Xeque e xeque-mate</span>
-                                        <span>8 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Empates e situações especiais</span>
-                                        <span>8 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Revisão das regras</span>
-                                        <span>7 min</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="detalhes-modulo">
-                                <div className="detalhes-modulo-topo">
-                                    <div className="detalhes-modulo-numero">
-                                        <span>04</span>
-                                    </div>
-
-                                    <div className="detalhes-modulo-info">
-                                        <h3>Primeiras estratégias</h3>
-                                        <p>4 aulas · 30 minutos</p>
-                                    </div>
-
-                                    <i className="bi bi-chevron-down"></i>
-                                </div>
-
-                                <div className="detalhes-aulas">
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Controlando o centro</span>
-                                        <span>7 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Proteção das peças</span>
-                                        <span>8 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Desenvolvimento das peças</span>
-                                        <span>8 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Planejando suas jogadas</span>
-                                        <span>7 min</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="detalhes-modulo">
-                                <div className="detalhes-modulo-topo">
-                                    <div className="detalhes-modulo-numero">
-                                        <span>05</span>
-                                    </div>
-
-                                    <div className="detalhes-modulo-info">
-                                        <h3>Prática e revisão</h3>
-                                        <p>3 aulas · 30 minutos</p>
-                                    </div>
-
-                                    <i className="bi bi-chevron-down"></i>
-                                </div>
-
-                                <div className="detalhes-aulas">
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Analisando uma partida</span>
-                                        <span>10 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Exercícios de revisão</span>
-                                        <span>10 min</span>
-                                    </div>
-
-                                    <div>
-                                        <i className="bi bi-play-circle"></i>
-                                        <span>Próximos passos no xadrez</span>
-                                        <span>10 min</span>
-                                    </div>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </section>
                 </main>

@@ -66,6 +66,21 @@
     font-weight: 700;
 }
 
+.detalhes-tag.iniciante {
+    color: white;
+    background-color: #198754;
+}
+
+.detalhes-tag.intermediario {
+    color: white;
+    background-color: #547FA3;
+}
+
+.detalhes-tag.avancado {
+    color: white;
+    background-color: #6f42c1;
+}
+
 .detalhes-info h1 {
     max-width: 600px;
     margin: 0 0 18px;

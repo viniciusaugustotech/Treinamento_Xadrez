@@ -1,9 +1,7 @@
-/* CONTAINER DOS CURSOS */
 .cursos {
     display: grid;
-    /* Define colunas automáticas de no mínimo 280px */
     grid-template-columns: repeat(4, minmax(300px, 1fr));
-    gap: 24px; /* Espaçamento entre os cards */
+    gap: 24px;
 
     width: 100%;
     max-width: 1200px;
@@ -12,16 +10,15 @@
     box-sizing: border-box;
 }
 
-/* CARD INDIVIDUAL */
 .curso {
     display: flex;
     flex-direction: column;
 
     width: 100%;
-    background-color: #FFFFFF; /* Garante o fundo branco */
-    border-radius: 12px;       /* Bordas arredondadas do card */
-    overflow: hidden;          /* Recorta a imagem nos cantos arredondados */
-    box-shadow: 0 4px 12px rgba(36, 56, 75, 0.08); /* Sombra suave padrão */
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(36, 56, 75, 0.08);
 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box;
@@ -32,7 +29,6 @@
     box-shadow: 0 10px 25px rgba(36, 56, 75, 0.15);
 }
 
-/* CAPA DO CARD */
 .curso-capa {
     position: relative;
     width: 100%;
@@ -60,7 +56,6 @@
     transform: scale(1.05);
 }
 
-/* ETIQUETA DE NÍVEL */
 .curso-capa .tag {
     position: absolute;
     top: 14px;
@@ -80,7 +75,6 @@
     font-weight: bold;
 }
 
-/* CONTEÚDO TEXTUAL */
 .curso-texto {
     width: 100%;
     padding: 20px;
@@ -105,7 +99,6 @@
     overflow-wrap: break-word;
 }
 
-/* RODAPÉ DO CARD (MÓDULOS E TEMPO) */
 .curso-descricao {
     display: flex;
     align-items: center;
@@ -143,10 +136,9 @@
     margin: 0;
 }
 
-/* RESPONSIVIDADE PARA TELAS MENORES */
 @media (max-width: 650px) {
     .cursos {
-        grid-template-columns: 1fr; /* 1 card por linha apenas em celulares */
+        grid-template-columns: 1fr;
         padding: 24px 16px;
         gap: 16px;
     }
@@ -171,7 +163,7 @@
     height: 38px;
   
     border-radius: 50%;
-    background-color: #FF5E2B; /* Laranja exato do design */
+    background-color: #FF5E2B;
     color: #FFFFFF;
   
     text-decoration: none;
@@ -182,30 +174,26 @@
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   }
   
-  /* Tamanho e cor do ícone SVG dentro do botão */
   .botao a svg {
     width: 16px;
     height: 16px;
     stroke: #FFFFFF;
   }
   
-  /* Efeito Hover (ao passar o mouse) */
   .botao a:hover {
     background-color: #E84D1B;
     transform: scale(1.08);
     box-shadow: 0 6px 16px rgba(255, 94, 43, 0.45);
   }
   
-  /* Efeito Clique */
   .botao a:active {
     transform: scale(0.96);
   }
 
-  /* CONTAINER PRINCIPAL DO CABEÇALHO */
 .secao-cabecalho {
     display: flex;
     align-items: flex-end;
-    justify-content: space-between; /* Empurra o link para a extrema direita */
+    justify-content: space-between;
     
     width: 100%;
     max-width: 1200px;
@@ -214,7 +202,6 @@
     box-sizing: border-box;
   }
   
-  /* LADO ESQUERDO: LINHA + TÍTULO */
   .cabecalho-titulo {
     display: flex;
     flex-direction: column;
@@ -235,10 +222,9 @@
     font-weight: 800;
     margin: 0;
     line-height: 1.2;
-    white-space: nowrap; /* IMPEDE QUE O TÍTULO QUEBRE EM 2 LINHAS */
+    white-space: nowrap;
   }
   
-  /* LADO DIREITO: LINK "VER TODOS OS CURSOS" */
   .ver-todos {
     display: inline-flex;
     align-items: center;
@@ -248,7 +234,7 @@
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
-    white-space: nowrap; /* IMPEDE QUE O LINK QUEBRE EM 2 LINHAS */
+    white-space: nowrap;
   }
   
   .ver-todos:hover {
@@ -264,7 +250,6 @@
     transform: translateX(4px);
   }
   
-  /* Animação suave na seta ao passar o mouse */
   .ver-todos i {
     font-size: 14px;
     transition: transform 0.2s ease;
@@ -274,7 +259,6 @@
     transform: translateX(4px);
   }
   
-  /* RESPONSIVIDADE PARA CELULARES */
   @media (max-width: 600px) {
     .secao-cabecalho {
       flex-direction: column;

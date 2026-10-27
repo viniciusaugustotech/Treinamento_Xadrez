@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import "./cursos.css";
-import cursos from "@backend/data/banco";
+const cursos = require("../../../../backend/data/curso.json");
 
 export default function Cursos() {
   return (
@@ -127,8 +127,8 @@ export default function Cursos() {
           </div>
 
           <div className="lista-cursos">
-            {cursos.map(item => (
-              <article className="curso">
+            {cursos.map((item, index) => (
+              <article className="curso" key={index}>
               <div className="curso-imagem">
                 <img src="/imagens/fundamentos.jpg" alt="Fundamentos do Xadrez" />
                 <span className="nivel iniciante">{item.tag}</span>

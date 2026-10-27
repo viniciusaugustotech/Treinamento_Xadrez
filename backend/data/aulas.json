@@ -1,0 +1,158 @@
+{
+    "1": [
+      { "id_aula": 1, "ordem": 1, "titulo": "Introdução ao xadrez", "duracao": "5 min" },
+      { "id_aula": 2, "ordem": 2, "titulo": "O tabuleiro e suas casas", "duracao": "7 min" },
+      { "id_aula": 3, "ordem": 3, "titulo": "Organização das peças", "duracao": "6 min" },
+      { "id_aula": 4, "ordem": 4, "titulo": "Preparando uma partida", "duracao": "7 min" }
+    ],
+    "2": [
+      { "id_aula": 5, "ordem": 1, "titulo": "O Peão e a Captura", "duracao": "8 min" },
+      { "id_aula": 6, "ordem": 2, "titulo": "Torre e Bispo: Linhas e Diagonais", "duracao": "9 min" },
+      { "id_aula": 7, "ordem": 3, "titulo": "A Dama e o Cavalo", "duracao": "10 min" },
+      { "id_aula": 8, "ordem": 4, "titulo": "O Rei e sua Importância", "duracao": "8 min" }
+    ],
+    "3": [
+      { "id_aula": 9, "ordem": 1, "titulo": "O Roque (Pequeno e Grande)", "duracao": "8 min" },
+      { "id_aula": 10, "ordem": 2, "titulo": "Captura En Passant", "duracao": "7 min" },
+      { "id_aula": 11, "ordem": 3, "titulo": "Promoção do Peão", "duracao": "7 min" },
+      { "id_aula": 12, "ordem": 4, "titulo": "O Conceito de Xeque", "duracao": "8 min" }
+    ],
+    "4": [
+      { "id_aula": 13, "ordem": 1, "titulo": "Como Aplicar o Xeque-Mate", "duracao": "8 min" },
+      { "id_aula": 14, "ordem": 2, "titulo": "O Mate do Pastor e Como Evitar", "duracao": "8 min" },
+      { "id_aula": 15, "ordem": 3, "titulo": "Empate por Afogamento", "duracao": "7 min" },
+      { "id_aula": 16, "ordem": 4, "titulo": "Outros Tipos de Empate", "duracao": "7 min" }
+    ],
+    "5": [
+      { "id_aula": 17, "ordem": 1, "titulo": "Valor Relativo das Peças", "duracao": "7 min" },
+      { "id_aula": 18, "ordem": 2, "titulo": "Dominando o Centro", "duracao": "8 min" },
+      { "id_aula": 19, "ordem": 3, "titulo": "Segurança do Rei no Início", "duracao": "7 min" },
+      { "id_aula": 20, "ordem": 4, "titulo": "Análise de uma Partida Completa", "duracao": "8 min" }
+    ],
+    "6": [
+      { "id_aula": 21, "ordem": 1, "titulo": "O que é Tática no Xadrez", "duracao": "10 min" },
+      { "id_aula": 22, "ordem": 2, "titulo": "Diferença entre Tática e Estratégia", "duracao": "10 min" },
+      { "id_aula": 23, "ordem": 3, "titulo": "Peças Indefesas: O Alvo Principal", "duracao": "10 min" }
+    ],
+    "7": [
+      { "id_aula": 24, "ordem": 1, "titulo": "O Garfo de Cavalo", "duracao": "12 min" },
+      { "id_aula": 25, "ordem": 2, "titulo": "Ataques Duplos de Dama e Bispo", "duracao": "11 min" },
+      { "id_aula": 26, "ordem": 3, "titulo": "Garfos de Peão no Meio-Jogo", "duracao": "12 min" }
+    ],
+    "8": [
+      { "id_aula": 27, "ordem": 1, "titulo": "Cravada Absoluta vs Relativa", "duracao": "10 min" },
+      { "id_aula": 28, "ordem": 2, "titulo": "Como Explorar uma Peça Cravada", "duracao": "10 min" },
+      { "id_aula": 29, "ordem": 3, "titulo": "O Ataque em Raio-X", "duracao": "10 min" }
+    ],
+    "9": [
+      { "id_aula": 30, "ordem": 1, "titulo": "Mecânica do Xeque Descoberto", "duracao": "10 min" },
+      { "id_aula": 31, "ordem": 2, "titulo": "O Xeque Duplo Esmagador", "duracao": "10 min" },
+      { "id_aula": 32, "ordem": 3, "titulo": "Combinações com Descobertos", "duracao": "10 min" }
+    ],
+    "10": [
+      { "id_aula": 33, "ordem": 1, "titulo": "Forçando o Desvio do Defensor", "duracao": "11 min" },
+      { "id_aula": 34, "ordem": 2, "titulo": "Atração do Rei para Casas Fatais", "duracao": "11 min" },
+      { "id_aula": 35, "ordem": 3, "titulo": "Sacrifícios de Atração", "duracao": "10 min" }
+    ],
+    "11": [
+      { "id_aula": 36, "ordem": 1, "titulo": "Eliminando o Defensor Chave", "duracao": "10 min" },
+      { "id_aula": 37, "ordem": 2, "titulo": "Táticas de Bloqueio e Interpolação", "duracao": "10 min" },
+      { "id_aula": 38, "ordem": 3, "titulo": "Aproveitando Sobrecargas", "duracao": "10 min" }
+    ],
+    "12": [
+      { "id_aula": 39, "ordem": 1, "titulo": "Como Visualizar Lances Forçados", "duracao": "11 min" },
+      { "id_aula": 40, "ordem": 2, "titulo": "Árvore de Análise de Variantes", "duracao": "11 min" },
+      { "id_aula": 41, "ordem": 3, "titulo": "Evitando Erros de Cálculo", "duracao": "11 min" }
+    ],
+    "13": [
+      { "id_aula": 42, "ordem": 1, "titulo": "Mate do Corredor", "duracao": "12 min" },
+      { "id_aula": 43, "ordem": 2, "titulo": "Mate de Anastácia e Árabe", "duracao": "11 min" },
+      { "id_aula": 44, "ordem": 3, "titulo": "Mate Sufocado", "duracao": "12 min" }
+    ],
+    "14": [
+      { "id_aula": 45, "ordem": 1, "titulo": "Elements de uma Posição", "duracao": "13 min" },
+      { "id_aula": 46, "ordem": 2, "titulo": "Vantagens Estáticas vs Dinâmicas", "duracao": "13 min" },
+      { "id_aula": 47, "ordem": 3, "titulo": "Como Criar um Plano Base", "duracao": "14 min" }
+    ],
+    "15": [
+      { "id_aula": 48, "ordem": 1, "titulo": "Peões Isolados e Dobrados", "duracao": "14 min" },
+      { "id_aula": 49, "ordem": 2, "titulo": "Peões Atrasados e Cadeias", "duracao": "14 min" },
+      { "id_aula": 50, "ordem": 3, "titulo": "Maiorias de Peões na Ala", "duracao": "14 min" }
+    ],
+    "16": [
+      { "id_aula": 51, "ordem": 1, "titulo": "Luta por Colunas Abertas", "duracao": "12 min" },
+      { "id_aula": 52, "ordem": 2, "titulo": "Invasão na 7ª e 8ª Fileiras", "duracao": "13 min" },
+      { "id_aula": 53, "ordem": 3, "titulo": "Postos Avançados para Torres", "duracao": "13 min" }
+    ],
+    "17": [
+      { "id_aula": 54, "ordem": 1, "titulo": "Identificando Complexos de Casas Fracas", "duracao": "13 min" },
+      { "id_aula": 55, "ordem": 2, "titulo": "Instalação de Peças em Postos Fortes", "duracao": "13 min" },
+      { "id_aula": 56, "ordem": 3, "titulo": "Provocando Fraquezas no Oponente", "duracao": "14 min" }
+    ],
+    "18": [
+      { "id_aula": 57, "ordem": 1, "titulo": "A Força Longínqua do Par de Bispos", "duracao": "13 min" },
+      { "id_aula": 58, "ordem": 2, "titulo": "Bispo Mau vs Bispo Bom", "duracao": "13 min" },
+      { "id_aula": 59, "ordem": 3, "titulo": "Abrindo a Posição para os Bispos", "duracao": "14 min" }
+    ],
+    "19": [
+      { "id_aula": 60, "ordem": 1, "titulo": "Rotas de Manobra de Longo Prazo", "duracao": "14 min" },
+      { "id_aula": 61, "ordem": 2, "titulo": "Cavalos em Posições Fechadas", "duracao": "13 min" },
+      { "id_aula": 62, "ordem": 3, "titulo": "Bloqueio de Peões com Cavalos", "duracao": "14 min" }
+    ],
+    "20": [
+      { "id_aula": 63, "ordem": 1, "titulo": "Como Sufocar o Adversário", "duracao": "13 min" },
+      { "id_aula": 64, "ordem": 2, "titulo": "Restrição de Peças Inimigas", "duracao": "13 min" },
+      { "id_aula": 65, "ordem": 3, "titulo": "Rupturas de Peões para Liberar Espaço", "duracao": "14 min" }
+    ],
+    "21": [
+      { "id_aula": 66, "ordem": 1, "titulo": "O Pensamento Profilático de Nimzowitsch", "duracao": "14 min" },
+      { "id_aula": 67, "ordem": 2, "titulo": "Parando os Planos do Adversário Antes", "duracao": "14 min" },
+      { "id_aula": 68, "ordem": 3, "titulo": "Lances de Consolidação", "duracao": "14 min" }
+    ],
+    "22": [
+      { "id_aula": 69, "ordem": 1, "titulo": "Centro Fixo vs Centro Móvel", "duracao": "13 min" },
+      { "id_aula": 70, "ordem": 2, "titulo": "O Centro Fluido", "duracao": "13 min" },
+      { "id_aula": 71, "ordem": 3, "titulo": "Ataques nas Alas com Centro Fechado", "duracao": "14 min" }
+    ],
+    "23": [
+      { "id_aula": 72, "ordem": 1, "titulo": "Simplificação Correta para Ganhar", "duracao": "14 min" },
+      { "id_aula": 73, "ordem": 2, "titulo": "Atravação do Rei no Meio-Jogo Tardio", "duracao": "14 min" },
+      { "id_aula": 74, "ordem": 3, "titulo": "Convertendo Pequenas Vantagens", "duracao": "14 min" }
+    ],
+    "24": [
+      { "id_aula": 75, "ordem": 1, "titulo": "Luta pelo Centro e Desenvolvimento", "duracao": "10 min" },
+      { "id_aula": 76, "ordem": 2, "titulo": "Segurança do Rei e Tempo de Jogo", "duracao": "10 min" },
+      { "id_aula": 77, "ordem": 3, "titulo": "Erros e Armadilhas Comuns na Abertura", "duracao": "10 min" }
+    ],
+    "25": [
+      { "id_aula": 78, "ordem": 1, "titulo": "Linhas Principais da Italiana", "duracao": "11 min" },
+      { "id_aula": 79, "ordem": 2, "titulo": "O Ataque Fegatello (Frito)", "duracao": "11 min" },
+      { "id_aula": 80, "ordem": 3, "titulo": "Planos Estratégicos Concretos", "duracao": "11 min" }
+    ],
+    "26": [
+      { "id_aula": 81, "ordem": 1, "titulo": "A Variante Aberta vs Fechada", "duracao": "12 min" },
+      { "id_aula": 82, "ordem": 2, "titulo": "A Variante de Troca da Espanhola", "duracao": "11 min" },
+      { "id_aula": 83, "ordem": 3, "titulo": "Manobras Típicas de Meio-Jogo", "duracao": "12 min" }
+    ],
+    "27": [
+      { "id_aula": 84, "ordem": 1, "titulo": "Gambito da Dama Aceito", "duracao": "11 min" },
+      { "id_aula": 85, "ordem": 2, "titulo": "Gambito da Dama Recusado", "duracao": "11 min" },
+      { "id_aula": 86, "ordem": 3, "titulo": "A Defesa Eslava", "duracao": "10 min" }
+    ],
+    "28": [
+      { "id_aula": 87, "ordem": 1, "titulo": "O Espírito Assimétrico da Siciliana", "duracao": "12 min" },
+      { "id_aula": 88, "ordem": 2, "titulo": "Siciliana Aberta vs Fechada", "duracao": "11 min" },
+      { "id_aula": 89, "ordem": 3, "titulo": "Variante Najdorf e Dragão", "duracao": "12 min" }
+    ],
+    "29": [
+      { "id_aula": 90, "ordem": 1, "titulo": "Estruturas Sólidas da Caro-Kann", "duracao": "11 min" },
+      { "id_aula": 91, "ordem": 2, "titulo": "Contra-ataque Dinâmico na Francesa", "duracao": "11 min" },
+      { "id_aula": 92, "ordem": 3, "titulo": "Comparativo de Estruturas", "duracao": "11 min" }
+    ],
+    "30": [
+      { "id_aula": 93, "ordem": 1, "titulo": "Como Escolher Alinhado ao seu Estilo", "duracao": "11 min" },
+      { "id_aula": 94, "ordem": 2, "titulo": "Transição Correta para o Meio-Jogo", "duracao": "11 min" },
+      { "id_aula": 95, "ordem": 3, "titulo": "Estudo de Linhas com Motores de Análise", "duracao": "10 min" }
+    ]
+  }
+  
