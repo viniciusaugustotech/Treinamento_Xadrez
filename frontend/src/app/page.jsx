@@ -2,7 +2,6 @@
 import Link from "next/link";
 import "./globals.css";
 import CardCurso from "@/components/CardCurso";
-import Image from "next/image";
 
 export default function Home() {
   return (

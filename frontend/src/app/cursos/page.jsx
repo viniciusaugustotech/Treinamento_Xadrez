@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import "./cursos.css";
+import cursos from "@backend/data/banco";
 
 export default function Cursos() {
   return (
@@ -126,21 +127,21 @@ export default function Cursos() {
           </div>
 
           <div className="lista-cursos">
-            <article className="curso">
+            {cursos.map(item => (
+              <article className="curso">
               <div className="curso-imagem">
                 <img src="/imagens/fundamentos.jpg" alt="Fundamentos do Xadrez" />
-                <span className="nivel iniciante">Iniciante</span>
+                <span className="nivel iniciante">{item.tag}</span>
               </div>
 
               <div className="curso-conteudo">
-                <h3>Fundamentos do Xadrez</h3>
+                <h3>{item.titulo}</h3>
                 <p>
-                  Aprenda as regras, os movimentos das peças e conceitos básicos
-                  para começar a jogar com confiança.
+                  {item.descricao}
                 </p>
 
                 <div className="curso-info">
-                  <span><i className="bi bi-journal-bookmark"></i> 5 módulos</span>
+                  <span><i className="bi bi-journal-bookmark"></i> {item.modulos} módulos</span>
                   <span><i className="bi bi-clock"></i> 2h 30min</span>
                 </div>
 
@@ -149,131 +150,7 @@ export default function Cursos() {
                 </Link>
               </div>
             </article>
-
-            <article className="curso">
-              <div className="curso-imagem">
-                <img src="/imagens/taticas.jpg" alt="Táticas e Combinações" />
-                <span className="nivel intermediario">Intermediário</span>
-              </div>
-
-              <div className="curso-conteudo">
-                <h3>Táticas e Combinações</h3>
-                <p>
-                  Desenvolva seu olhar tático e aprenda as principais combinações
-                  para decidir partidas.
-                </p>
-
-                <div className="curso-info">
-                  <span><i className="bi bi-journal-bookmark"></i> 8 módulos</span>
-                  <span><i className="bi bi-clock"></i> 4h 15min</span>
-                </div>
-
-                <Link href="/cursos/2" className="curso-detalhes">
-                  Ver detalhes <i className="bi bi-arrow-right"></i>
-                </Link>
-              </div>
-            </article>
-
-            <article className="curso">
-              <div className="curso-imagem">
-                <img src="/imagens/aberturas.jpg" alt="Aberturas Clássicas" />
-                <span className="nivel intermediario">Intermediário</span>
-              </div>
-
-              <div className="curso-conteudo">
-                <h3>Aberturas Clássicas</h3>
-                <p>
-                  Estude as principais aberturas e aprenda a escolher a melhor
-                  opção para o seu estilo de jogo.
-                </p>
-
-                <div className="curso-info">
-                  <span><i className="bi bi-journal-bookmark"></i> 7 módulos</span>
-                  <span><i className="bi bi-clock"></i> 3h 50min</span>
-                </div>
-
-                <Link href="/cursos/3" className="curso-detalhes">
-                  Ver detalhes <i className="bi bi-arrow-right"></i>
-                </Link>
-              </div>
-            </article>
-
-            <article className="curso">
-              <div className="curso-imagem">
-                <img src="/imagens/estrategia.jpg" alt="Estratégia e Posicionamento" />
-                <span className="nivel avancado">Avançado</span>
-              </div>
-
-              <div className="curso-conteudo">
-                <h3>Estratégia e Posicionamento</h3>
-                <p>
-                  Entenda os planos estratégicos e como controlar o centro,
-                  as colunas e as peças maiores.
-                </p>
-
-                <div className="curso-info">
-                  <span><i className="bi bi-journal-bookmark"></i> 10 módulos</span>
-                  <span><i className="bi bi-clock"></i> 6h 45min</span>
-                </div>
-
-                <Link href="/cursos/4" className="curso-detalhes">
-                  Ver detalhes <i className="bi bi-arrow-right"></i>
-                </Link>
-              </div>
-            </article>
-
-            <article className="curso">
-              <div className="curso-imagem">
-                <img src="/imagens/finais.jpg" alt="Finais de Partida" />
-                <span className="nivel iniciante">Iniciante</span>
-              </div>
-
-              <div className="curso-conteudo">
-                <h3>Finais de Partida</h3>
-                <p>
-                  Aprenda os principais finais e técnicas para converter
-                  vantagens em vitórias.
-                </p>
-
-                <div className="curso-info">
-                  <span><i className="bi bi-journal-bookmark"></i> 6 módulos</span>
-                  <span><i className="bi bi-clock"></i> 3h 20min</span>
-                </div>
-
-                <div className="curso-progresso">
-                  <div><span></span></div>
-                  <small>3 de 6</small>
-                </div>
-
-                <Link href="/cursos/5" className="curso-detalhes">
-                  Ver detalhes <i className="bi bi-arrow-right"></i>
-                </Link>
-              </div>
-            </article>
-
-            <article className="curso">
-              <div className="curso-imagem">
-                <img src="/imagens/meio-jogo.jpg" alt="Xadrez no Meio-Jogo" />
-                <span className="nivel intermediario">Intermediário</span>
-              </div>
-
-              <div className="curso-conteudo">
-                <h3>Xadrez no Meio-Jogo</h3>
-                <p>
-                  Domine as ideias principais do meio-jogo e aprenda a criar
-                  planos eficientes.
-                </p>
-
-                <div className="curso-info">
-                  <span><i className="bi bi-journal-bookmark"></i> 8 módulos</span>
-                  <span><i className="bi bi-clock"></i> 5h 10min</span>
-                </div>
-
-                <Link href="/cursos/6" className="curso-detalhes">
-                  Ver detalhes <i className="bi bi-arrow-right"></i>
-                </Link>
-              </div>
-            </article>
+            ))}
           </div>
 
           <div className="paginacao">

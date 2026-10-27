@@ -1,12 +1,14 @@
 "use client";
 
-import { use } from "react";
 import { useParams } from "next/navigation";
 import cursos from "../../../../../backend/data/banco.js";
 import Link from "next/link";
 import "./detalhes.css";
+import { aplicarEstilo } from "@backend/utils/cursos.js";
 
 export default function DetalhesCurso() {
+
+    aplicarEstilo(".detalhes-tag");
 
     const params = useParams();
     const idCurso = params.id;
@@ -28,7 +30,7 @@ export default function DetalhesCurso() {
 
             <section className="detalhes-hero">
                 <div className="detalhes-info">
-                    <span className="detalhes-tag">Iniciante</span>
+                    <span className="detalhes-tag">{curso.tag}</span>
 
                     <h1>{curso.titulo}</h1>
 
@@ -72,19 +74,12 @@ export default function DetalhesCurso() {
                     <section className="detalhes-secao">
                         <h2>Sobre o curso</h2>
 
-                        <p>
-                            {curso.descricao_longa.map((paragrafo, index) => {
+                            {curso.descricao_longa.map((paragrafo, index) => (
                                 <p key={index}>
                                     {paragrafo}
                                 </p>
-                            })}
-                        </p>
+                            ))}
 
-                        <p>
-                            Ao longo das aulas, você aprenderá a analisar
-                            jogadas, proteger suas peças e compreender
-                            melhor as possibilidades de cada movimento.
-                        </p>
                     </section>
 
                     <section className="detalhes-secao">
@@ -354,19 +349,19 @@ export default function DetalhesCurso() {
                             <div>
                                 <i className="bi bi-bar-chart"></i>
                                 <span>Nível</span>
-                                <strong>Iniciante</strong>
+                                <strong>{curso.tag}</strong>
                             </div>
 
                             <div>
                                 <i className="bi bi-clock"></i>
                                 <span>Duração</span>
-                                <strong>2h 30min</strong>
+                                <strong>{curso.duracao}</strong>
                             </div>
 
                             <div>
                                 <i className="bi bi-collection-play"></i>
                                 <span>Módulos</span>
-                                <strong>5 módulos</strong>
+                                <strong>{curso.modulos} módulos</strong>
                             </div>
                         </div>
 

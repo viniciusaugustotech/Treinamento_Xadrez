@@ -5,17 +5,7 @@ import Link from "next/link";
 import "./CardCurso.css?v=1";
 
 export default function CardCurso(){
-    aplicarEstilo();
-
-    cursos.map(item => {
-        return (
-            <>
-            <div>
-                SLA
-            </div>
-            </>
-        )
-    })
+    aplicarEstilo(".tag");
 
     return (
     <div>
