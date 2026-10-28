@@ -4,7 +4,9 @@ import { resolve } from 'path';
 
 const caminhoArquivo = resolve(
   process.cwd(),
-  'data/cursos.json'
+  "backend", 
+  "data",
+  "curso.json"
 );
 
 async function obterTodosCursos() {

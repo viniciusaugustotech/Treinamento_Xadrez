@@ -3,8 +3,12 @@ import helmet from 'helmet';
 import cors from 'cors';
 import { resolve } from 'node:path';
 
-import { produtoRouter, configurarSegurancaProdutos } from './routes/ProdutoRoutes.js';
 import { authRouter } from './routes/AuthRoutes.js';
+import { aulaRouter } from './routes/AulaRoutes.js';
+import { moduloRouter } from './routes/ModuloRoutes.js';
+import { usuarioRouter } from './routes/UsuarioRoutes.js';
+import { cursoRouter } from './routes/CursoRoutes.js';
+
 import { autenticar, autorizarAdmin } from './middlewares/AuthMiddleware.js';
 
 export const app = express();
@@ -36,7 +40,9 @@ configurarSegurancaProdutos(autenticar, autorizarAdmin);
 // 3. Rotas da API
 app.get('/api/check', (_req, res) => res.status(200).json({ status: 'ok' }));
 app.use('/auth', authRouter);
-app.use('/api/produtos', produtoRouter);
+app.use('/cursos', cursoRouter);
+app.use('/cursos/:id/aulas/:aulasid', aulaRouter);
+app.use('/', moduloRouter)
 
 // 4. Fallback 404
 app.use((req, res) => {

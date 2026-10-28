@@ -1,7 +1,13 @@
+
 import { readFile, writeFile } from "fs/promises";
 import { resolve } from "path";
 
-const caminhoArquivo = resolve(process.cwd(), "backend", "data", "usuarios.json");
+const caminhoArquivo = resolve(
+  process.cwd(),
+  "backend",
+  "data",
+  "usuario.json"
+);
 
 async function obterTodosUsuarios() {
   try {
@@ -12,41 +18,118 @@ async function obterTodosUsuarios() {
   }
 }
 
+async function salvarUsuarios(usuarios) {
+  await writeFile(
+    caminhoArquivo,
+    JSON.stringify(usuarios, null, 2),
+    "utf-8"
+  );
+}
+
+function removerSenha(usuario) {
+  const { senha, ...dados } = usuario;
+  return dados;
+}
+
+export async function listarTodos() {
+  const usuarios = await obterTodosUsuarios();
+  return usuarios.map(removerSenha);
+}
+
 export async function buscarPorEmail(email) {
   const usuarios = await obterTodosUsuarios();
-  
-  const usuarioEncontrado = usuarios.find(u => u.email === email);
-  
-  if (!usuarioEncontrado) return null;
+
+  const usuario = usuarios.find(u => u.email === email);
+
+  if (!usuario) return null;
 
   return {
-    id: usuarioEncontrado.id_usuario || usuarioEncontrado.id,
-    nome: usuarioEncontrado.nome_completo || usuarioEncontrado.nome,
-    email: usuarioEncontrado.email,
-    senha: usuarioEncontrado.senha,
-    perfil: usuarioEncontrado.perfil || "usuario"
+    id: usuario.id_usuario || usuario.id,
+    nome: usuario.nome_completo || usuario.nome_usuario || usuario.nome,
+    email: usuario.email,
+    senha: usuario.senha,
+    perfil: usuario.perfil || "usuario"
   };
 }
 
-export async function criar({ nome, email, senha, nivel = "Iniciante", perfil = "usuario", sobre_mim = "",  }) {
+export async function buscarPorId(id) {
   const usuarios = await obterTodosUsuarios();
 
-  const novoId = usuarios.length > 0 ? Math.max(...usuarios.map(u => u.id_usuario)) + 1 : 1;
+  const usuario = usuarios.find(
+    u => Number(u.id_usuario ?? u.id) === Number(id)
+  );
+
+  if (!usuario) return null;
+
+  return removerSenha(usuario);
+}
+
+export async function criar({
+  nome,
+  email,
+  senha,
+  nivel = "Iniciante",
+  perfil = "usuario",
+  sobre_mim = ""
+}) {
+  const usuarios = await obterTodosUsuarios();
+
+  const novoId = usuarios.length > 0
+    ? Math.max(...usuarios.map(u => Number(u.id_usuario ?? u.id) || 0)) + 1
+    : 1;
 
   const novoUsuario = {
     id_usuario: novoId,
     nome_usuario: nome,
-    email: email,
-    senha: senha,
+    email,
+    senha,
     nivel_xadrez: nivel,
-    perfil: perfil,
-    sobre_mim: sobre_mim,
+    perfil,
+    sobre_mim,
     cursos_inscritos: []
   };
 
   usuarios.push(novoUsuario);
-  await writeFile(caminhoArquivo, JSON.stringify(usuarios, null, 2), "utf-8");
+  await salvarUsuarios(usuarios);
 
-  return { id: novoId, nome, email, perfil };
+  return removerSenha(novoUsuario);
 }
 
+export async function editar(id, dados) {
+  const usuarios = await obterTodosUsuarios();
+
+  const indice = usuarios.findIndex(
+    u => Number(u.id_usuario ?? u.id) === Number(id)
+  );
+
+  if (indice === -1) return null;
+
+  const usuarioAtual = usuarios[indice];
+
+  usuarios[indice] = {
+    ...usuarioAtual,
+    ...dados,
+    id_usuario: Number(id)
+  };
+
+  usuarios[indice].senha = usuarioAtual.senha;
+
+  await salvarUsuarios(usuarios);
+
+  return removerSenha(usuarios[indice]);
+}
+
+export async function excluir(id) {
+  const usuarios = await obterTodosUsuarios();
+
+  const atualizados = usuarios.filter(
+    u => Number(u.id_usuario ?? u.id) !== Number(id)
+  );
+
+  if (atualizados.length === usuarios.length) {
+    return false;
+  }
+
+  await salvarUsuarios(atualizados);
+  return true;
+}
