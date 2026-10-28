@@ -48,7 +48,8 @@ export default function CardCurso(){
                             <p>{item.duracao}</p>
                         </section>
                         <section className="botao">
-                            <Link href={"/cursos/" + item.id_curso}>
+                            {/* Redireciona para o login enviando a rota final do curso */}
+                            <Link href={`/login?redirect=/cursos/${item.id_curso}`}>
                                 <svg 
                                 xmlns="http://www.w3.org/2000/svg" 
                                 viewBox="0 0 24 24" 
@@ -62,11 +63,11 @@ export default function CardCurso(){
                                 <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
                             </Link>
-                            </section>
+                        </section>
                     </div>
                 </div>
             ))}
-                </div>
-            </div>
+        </div>
+    </div>
     )
 }

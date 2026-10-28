@@ -1,32 +1,39 @@
 [
   {
     "id_usuario": 1,
-    "nome_usuario": "lucas_xadrez",
-    "email": "lucas.silva@exemplo.com",
-    "perfil": "usuario",
-    "nivel_xadrez": "Iniciante",
-    "sobre_mim": "Comecei a jogar xadrez recentemente e meu objetivo principal é entender melhor o movimento tático e a abertura italiana.",
-    "senha": "senha_23",
-    "cursos_inscritos": [1, 4]
-  },
-  {
-    "id_usuario": 2,
     "nome_usuario": "bia_chessmaster",
     "perfil": "adm",
     "email": "beatriz.costa@exemplo.com",
     "nivel_xadrez": "Intermediário",
     "sobre_mim": "Pratico xadrez há um ano. Estou focada em estudar estruturas de peões e melhorar meu cálculo de variantes em finais de partidas.",
-    "senha": "senha_456",
-    "cursos_inscritos": [1, 2]
+    "senha": "$2b$10$k8F29sL0xPqWm9Nv1RzT4uOqK8mP2vL4xN7rQ9wE2uY1zT0sR5vX8",
+    "cursos_inscritos": [
+      1,
+      2
+    ]
   },
   {
-    "id_usuario": 3,
+    "id_usuario": 2,
     "nome_usuario": "rafa_grandmaster",
     "perfil": "usuario",
     "email": "rafael.almeida@exemplo.com",
     "nivel_xadrez": "Avançado",
     "sobre_mim": "Jogador de torneios locais. Busco aprimorar conceitos de profilaxia e refinamento posicional avançado contra defesas semi-abertas.",
-    "senha": "senha_89",
-    "cursos_inscritos": [2, 3, 4]
+    "senha": "$2b$10$e7X9qL2vZ1wM5nP0rT8u3O1kR4vY7xN9rQ2wE5uI0zO3sP6vL8xY1",
+    "cursos_inscritos": [
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "id_usuario": 3,
+    "nome_usuario": "lucas_xadrez",
+    "email": "lucas.silva@exemplo.com",
+    "senha": "$2b$10$Q8aTVyIu/u9mxKstQbJcQuLwS7zSI9qI4Bi0GyxzKUtekiDSMVKl6",
+    "perfil": "usuario",
+    "nivel_xadrez": "Iniciante",
+    "sobre_mim": "",
+    "cursos_inscritos": []
   }
 ]

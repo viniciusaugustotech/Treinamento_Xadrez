@@ -4,7 +4,6 @@ import { resolve } from 'path';
 
 const caminhoArquivo = resolve(
   process.cwd(), 
-  "backend", 
   "data", 
   "modulo.json"
 );

@@ -2,9 +2,45 @@
 
 import Link from "next/link";
 import "./auth.css";
+import { useEffect, useState } from "react";
+
+
+async function pegarReq(event) {
+  event.preventDefault();
+
+  const formulario = new FormData(event.currentTarget);
+
+  const email = formulario.get('email');
+  const senha = formulario.get('senha');
+
+  try {
+    const res = await fetch('http://localhost:5000/auth/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email, senha })
+    });
+
+    const resultado = await res.json();
+
+   if (res.ok && resultado.sucesso) {
+        alert('Login realizado com sucesso!');
+
+        const params = new URLSearchParams(window.location.search);
+        const destino = params.get('redirect') || '/';
+
+        window.location.href = destino;
+    } else {
+      alert(resultado.erro || 'Email ou senha incorretos.');
+    }
+  } catch (erro) {
+    console.error('Erro:', erro);
+    alert('Não foi possível conectar ao servidor.');
+  }
+}
 
 export default function Login() {
-
     return (
         <main className="auth-pagina">
             <section className="auth-card">
@@ -18,7 +54,7 @@ export default function Login() {
                     <p>Entre na sua conta e continue evoluindo no xadrez.</p>
                 </div>
 
-                <form className="auth-form" action="/auth/login" method="POST">
+                <form className="auth-form" action="/auth/login" method="POST" onSubmit={pegarReq}>
                     <div className="auth-campo">
                         <label htmlFor="email">E-mail</label>
                         <div className="auth-input">
@@ -26,10 +62,11 @@ export default function Login() {
                             <input
                                 type="email"
                                 id="email"
+                                name="email"
                                 placeholder="Digite seu e-mail"
                                 autoComplete="email"
                                 required
-                            />
+                                />
                         </div>
                     </div>
 
@@ -40,10 +77,11 @@ export default function Login() {
                             <input
                                 type="password"
                                 id="senha"
+                                name="senha"
                                 placeholder="Digite sua senha"
                                 autoComplete="current-password"
                                 required
-                            />
+                                />
                         </div>
                     </div>
 

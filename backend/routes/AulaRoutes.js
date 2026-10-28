@@ -6,5 +6,5 @@ export const aulaRouter = express.Router();
 
 aulaRouter.get('/', AulaController.listarTodos);
 aulaRouter.post('/', AulaController.criar);
-aulaRouter.put('/:id', AulaController.editar);
-aulaRouter.delete('/:id', AulaController.excluir);
+aulaRouter.put('/:aulasid', AulaController.editar);
+aulaRouter.delete('/:aulasid', AulaController.excluir);
