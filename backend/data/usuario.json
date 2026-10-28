@@ -10,6 +10,16 @@
     "cursos_inscritos": [
       1,
       2
+    ],
+    "aulas_concluidas": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108
     ]
   },
   {
@@ -24,6 +34,23 @@
       2,
       3,
       4
+    ],
+    "aulas_concluidas": [
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215
     ]
   },
   {
@@ -34,6 +61,39 @@
     "perfil": "usuario",
     "nivel_xadrez": "Iniciante",
     "sobre_mim": "",
-    "cursos_inscritos": []
+    "cursos_inscritos": [],
+    "aulas_concluidas": []
+  },
+  {
+    "id_usuario": 4,
+    "nome_usuario": "vinicius_xadrez",
+    "email": "augusto.silva@exemplo.com",
+    "senha": "$2b$10$2bOXvKgRriW31dnLx3vqI.AwTVCBqyvqJBeGPK9909vxJ9087cLGG",
+    "perfil": "usuario",
+    "nivel_xadrez": "Iniciante",
+    "sobre_mim": "asdasd",
+    "cursos_inscritos": [
+      2,
+      3,
+      4
+    ],
+    "aulas_concluidas": [
+      201,
+      202,
+      203,
+      204,
+      205,
+      206,
+      207,
+      208,
+      209,
+      210,
+      211,
+      212,
+      213,
+      214,
+      215
+    ],
+    "id": 4
   }
 ]

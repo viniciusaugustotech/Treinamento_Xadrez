@@ -20,38 +20,43 @@ export default function DetalhesCurso() {
 
     useEffect(() => {
         async function carregarDados() {
-            try {
-                const [resCursos, resModulos, resAulas] = await Promise.all([
-                    fetch("http://localhost:5000/cursos"),
-                    fetch("http://localhost:5000/modulos"),
-                    fetch(`http://localhost:5000/cursos/${idCurso}/aulas`)
-                ]);
+    try {
+        const [resCursos, resModulos, resAulas] = await Promise.all([
+            fetch("http://localhost:5000/cursos"),
+            fetch("http://localhost:5000/modulos"),
+            fetch(`http://localhost:5000/cursos/${idCurso}/aulas`) // 👈 Usar crases aqui
+        ]);
 
-                if (!resCursos.ok || !resModulos.ok || !resAulas.ok) {
-                    throw new Error("Erro ao carregar dados.");
-                }
-
-                const dadosCursos = await resCursos.json();
-                const dadosModulos = await resModulos.json();
-                const dadosAulas = await resAulas.json();
-
-                const cursoEncontrado = dadosCursos.find(
-                    item => String(item.id_curso) === String(idCurso)
-                );
-
-                if (!cursoEncontrado) {
-                    setErro("Curso não encontrado.");
-                } else {
-                    setCurso(cursoEncontrado);
-                    setModulos(dadosModulos);
-                    setAulas(dadosAulas);
-                }
-            } catch (err) {
-                setErro("Não foi possível conectar ao servidor.");
-            } finally {
-                setCarregando(false);
-            }
+        if (!resCursos.ok || !resModulos.ok || !resAulas.ok) {
+            throw new Error("Erro ao carregar dados.");
         }
+
+        const jsonCursos = await resCursos.json();
+        const jsonModulos = await resModulos.json();
+        const jsonAulas = await resAulas.json();
+
+        // Extrai a array caso o backend envie encapsulado em 'dados'
+        const listaCursos = Array.isArray(jsonCursos) ? jsonCursos : (jsonCursos.dados || []);
+        const listaModulos = Array.isArray(jsonModulos) ? jsonModulos : (jsonModulos.dados || []);
+        const listaAulas = Array.isArray(jsonAulas) ? jsonAulas : (jsonAulas.dados || []);
+
+        const cursoEncontrado = listaCursos.find(
+            item => String(item.id_curso) === String(idCurso)
+        );
+
+        if (!cursoEncontrado) {
+            setErro("Curso não encontrado.");
+        } else {
+            setCurso(cursoEncontrado);
+            setModulos(listaModulos);
+            setAulas(listaAulas);
+        }
+    } catch (err) {
+        setErro("Não foi possível conectar ao servidor."+err);
+    } finally {
+        setCarregando(false);
+    }
+}
 
         if (idCurso) carregarDados();
     }, [idCurso]);

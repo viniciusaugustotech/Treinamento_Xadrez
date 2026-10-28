@@ -1,35 +1,77 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import "./aulas.css";
 import { useParams } from "next/navigation";
-const aulas = require("../../../../../../../backend/data/aulas.json");
-const cursos = require("../../../../../../../backend/data/curso.json");
-const modulos = require("../../../../../../../backend/data/modulo.json");
+import "./aulas.css";
 
 export default function AulaCurso() {
-
     const params = useParams();
-    const idCurso = params.id;
-    const idAula = params.aulasid;
+    const idCurso = params?.id;
+    const idAula = params?.aulasid;
 
-    const aulasDoCurso = aulas.filter(aula => 
-        modulos.filter(mod => String(mod.id_curso) === String(idCurso))
-               .some(mod => String(mod.id_modulo) === String(aula.id_modulo))
-    );
-    const aulaAtual = aulas.find((aula) => String(aula.id_aula) === String(idAula)) || {};
+    const [curso, setCurso] = useState(null);
+    const [modulos, setModulos] = useState([]);
+    const [aulas, setAulas] = useState([]);
+    const [carregando, setCarregando] = useState(true);
 
-    const indiceGlobal = aulasDoCurso.findIndex((aula) => String(aula.id_aula) === String(idAula));
+    useEffect(() => {
+        async function carregarDados() {
+            try {
+                const [resCursos, resModulos, resAulas] = await Promise.all([
+                    fetch("http://localhost:5000/cursos"),
+                    fetch("http://localhost:5000/modulos"),
+                    fetch(`http://localhost:5000/cursos/${idCurso}/aulas`)
+                ]);
+
+                const dadosCursos = await resCursos.json();
+                const dadosModulos = await resModulos.json();
+                const dadosAulas = await resAulas.json();
+
+                const listaCursos = Array.isArray(dadosCursos) ? dadosCursos : (dadosCursos.dados || []);
+                const listaModulos = Array.isArray(dadosModulos) ? dadosModulos : (dadosModulos.dados || []);
+                const listaAulas = Array.isArray(dadosAulas) ? dadosAulas : (dadosAulas.dados || []);
+
+                setCurso(listaCursos.find(item => String(item.id_curso) === String(idCurso)));
+                setModulos(listaModulos);
+                setAulas(listaAulas);
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setCarregando(false);
+            }
+        }
+
+        if (idCurso) carregarDados();
+    }, [idCurso]);
+
+    if (carregando) return <div className="aulas-pagina"><p>Carregando...</p></div>;
+    if (!curso) return <div className="aulas-pagina"><p>Curso não encontrado.</p></div>;
+
+    const modulosDoCurso = modulos.filter(mod => String(mod.id_curso) === String(idCurso));
+    const idsModulosDoCurso = modulosDoCurso.map(m => String(m.id_modulo));
+
+    const aulasDoCurso = aulas.filter(aula => idsModulosDoCurso.includes(String(aula.id_modulo)));
+    const aulaAtual = aulasDoCurso.find(aula => String(aula.id_aula) === String(idAula)) || {};
+
+    const indiceGlobal = aulasDoCurso.findIndex(aula => String(aula.id_aula) === String(idAula));
     const aulasconcluidas = indiceGlobal !== -1 ? indiceGlobal : 0;
     const proximaAulaObj = aulasDoCurso[indiceGlobal + 1];
 
-    const modulosEncontrados = modulos.find((mod) => String(mod.id_modulo) === String(aulaAtual?.id_modulo));
-    const curso = cursos.find(item => String(item.id_curso) === String(idCurso)) || {};
+    const modulosEncontrados = modulos.find(mod => String(mod.id_modulo) === String(aulaAtual?.id_modulo));
+
+    const videoId = aulaAtual.link_youtube 
+        ? aulaAtual.link_youtube.split('/').pop().replace('watch?v=', '').split('?')[0] 
+        : '';
+
+    const progressoPorcentagem = aulasDoCurso.length 
+        ? (((aulasconcluidas + 1) / aulasDoCurso.length) * 100).toFixed(1).replace('.', ',')
+        : '0,0';
 
     return (
         <div className="aulas-pagina">
             <header className="aulas-cabecalho">
-                <Link href={"/cursos/"+ idCurso} className="aulas-voltar">
+                <Link href={"/cursos/" + idCurso} className="aulas-voltar">
                     <i className="bi bi-arrow-left"></i>
                     Voltar para o curso
                 </Link>
@@ -48,7 +90,7 @@ export default function AulaCurso() {
                             <iframe
                                 width="100%"
                                 height="100%"
-                                src={`https://youtube.com{aulaAtual.link_youtube.split('/').pop().split('?')}`}
+                                src={`https://www.youtube.com/embed/${videoId}`}
                                 title={aulaAtual.titulo}
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -63,54 +105,51 @@ export default function AulaCurso() {
                         )}
                     </section>
 
-                    { modulosEncontrados ? (
-                    <section className="aulas-informacoes">
-                        <div className="aulas-etiquetas">
-                            <span className="aulas-tag">Módulo {modulosEncontrados.ordem}</span>
-                            <span className="aulas-duracao">
-                                <i className="bi bi-clock"></i>
-                                {modulosEncontrados.duracao}
-                            </span>
-                        </div>
-
-                        <h1>{aulaAtual.titulo}</h1>
-
-                        <p>
-                            {aulaAtual.descricao}
-                        </p>
-
-                        {aulaAtual.objetivos && (
-                            <div className="aulas-objetivos">
-                                <h2>O que você vai aprender</h2>
-                                {aulaAtual.objetivos.map((objetivo, index) => (
-                                <div key={index}>
-                                    <i className="bi bi-check-circle-fill"></i>
-                                    {objetivo}
-                                </div>
-                                ))}
+                    {modulosEncontrados ? (
+                        <section className="aulas-informacoes">
+                            <div className="aulas-etiquetas">
+                                <span className="aulas-tag">Módulo {modulosEncontrados.ordem}</span>
+                                <span className="aulas-duracao">
+                                    <i className="bi bi-clock"></i>
+                                    {modulosEncontrados.duracao}
+                                </span>
                             </div>
-                        )}
 
-                        <div className="aulas-navegacao">
-                            <Link
-                                href={`/cursos/${idCurso}`}
-                                className="aulas-botao aulas-botao-secundario"
-                            >
-                                <i className="bi bi-arrow-left"></i>
-                                Voltar ao curso
-                            </Link>
+                            <h1>{aulaAtual.titulo}</h1>
+                            <p>{aulaAtual.descricao}</p>
 
-                            {proximaAulaObj && (
-                                <Link
-                                    href={`/cursos/${idCurso}/aulas/${proximaAulaObj.id_aula}`}
-                                    className="aulas-botao"
-                                >
-                                    Próxima aula
-                                    <i className="bi bi-arrow-right"></i>
-                                </Link>
+                            {aulaAtual.objetivos && (
+                                <div className="aulas-objetivos">
+                                    <h2>O que você vai aprender</h2>
+                                    {aulaAtual.objetivos.map((objetivo, index) => (
+                                        <div key={index}>
+                                            <i className="bi bi-check-circle-fill"></i>
+                                            {objetivo}
+                                        </div>
+                                    ))}
+                                </div>
                             )}
-                        </div>
-                    </section>
+
+                            <div className="aulas-navegacao">
+                                <Link
+                                    href={`/cursos/${idCurso}`}
+                                    className="aulas-botao aulas-botao-secundario"
+                                >
+                                    <i className="bi bi-arrow-left"></i>
+                                    Voltar ao curso
+                                </Link>
+
+                                {proximaAulaObj && (
+                                    <Link
+                                        href={`/cursos/${idCurso}/aulas/${proximaAulaObj.id_aula}`}
+                                        className="aulas-botao"
+                                    >
+                                        Próxima aula
+                                        <i className="bi bi-arrow-right"></i>
+                                    </Link>
+                                )}
+                            </div>
+                        </section>
                     ) : (
                         <p>Nenhum módulo encontrado para este curso.</p>
                     )}
@@ -122,25 +161,27 @@ export default function AulaCurso() {
                             <h2>Conteúdo do curso</h2>
                             <p>{curso.titulo}</p>
                         </div>
-
                         <i className="bi bi-list-ul"></i>
                     </div>
 
                     <div className="aulas-progresso">
                         <div className="aulas-progresso-texto">
                             <span>Seu progresso</span>
-                            <strong>{((Number(aulasconcluidas)/ Number(aulasDoCurso.length))* 100).toFixed(1).replace('.', ',')}%</strong>
+                            <strong>{progressoPorcentagem}%</strong>
                         </div>
 
                         <div className="aulas-barra">
-                            <div className="aulas-barra-preenchimento"></div>
+                            <div 
+                                className="aulas-barra-preenchimento" 
+                                style={{ width: `${progressoPorcentagem.replace(',', '.')}%` }}
+                            ></div>
                         </div>
                         <p>
-                          {aulasconcluidas} de {aulasDoCurso.length} aulas concluídas
+                            {aulasconcluidas + 1} de {aulasDoCurso.length} aulas concluídas
                         </p>
                     </div>
 
-                    {modulos.filter(modulo => String(modulo.id_curso) === String(idCurso)).map((mod) => (
+                    {modulosDoCurso.map((mod) => (
                         <div className="aulas-modulo" key={mod.id_modulo}>
                             <div className="aulas-modulo-titulo">
                                 <div>
@@ -155,22 +196,25 @@ export default function AulaCurso() {
                                 <i className="bi bi-chevron-up"></i>
                             </div>
 
-                            {aulas.filter(aula => String(aula.id_modulo) === String(mod.id_modulo)).map((obj) => (
-                                <Link
-                                    key={obj.id_aula}
-                                    href={`/cursos/${idCurso}/aulas/${obj.id_aula}`}
-                                    className={`aulas-item ${String(idAula) === String(obj.id_aula) ? 'aulas-item-ativa' : ''}`}
-                                >
-                                    <i className="bi bi-play-circle-fill"></i>
+                            {aulas
+                                .filter(aula => String(aula.id_modulo) === String(mod.id_modulo))
+                                .map((obj) => (
+                                    <Link
+                                        key={obj.id_aula}
+                                        href={`/cursos/${idCurso}/aulas/${obj.id_aula}`}
+                                        className={`aulas-item ${String(idAula) === String(obj.id_aula) ? 'aulas-item-ativa' : ''}`}
+                                    >
+                                        <i className="bi bi-play-circle-fill"></i>
 
-                                    <div>
-                                        <span>{obj.titulo}</span>
-                                        <small>{obj.duracao}</small>
-                                    </div>
+                                        <div>
+                                            <span>{obj.titulo}</span>
+                                            <small>{obj.duracao}</small>
+                                        </div>
 
-                                    <i className="bi bi-play-fill"></i>
-                                </Link>
-                            ))}
+                                        <i className="bi bi-play-fill"></i>
+                                    </Link>
+                                ))
+                            }
                         </div>
                     ))}
                 </aside>

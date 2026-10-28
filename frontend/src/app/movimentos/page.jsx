@@ -20,9 +20,9 @@ export default function Movimentos() {
                     </a>
                 </div>
 
-                <div className="movimentos-banner-imagem">
+                <div className="movimentos-banner-imagem" style={{ backgroundColor: '#1e3a5f', padding: '24px', borderRadius: '8px', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <img
-                        src="/imagens/movimentos.jpg"
+                        src="/imagens/movimento.png"
                         alt="Peças de xadrez sobre um tabuleiro"
                     />
                 </div>

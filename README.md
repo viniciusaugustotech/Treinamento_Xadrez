@@ -37,7 +37,7 @@ PAGINAS DO PROJETO:
 * Página de aulas — /cursos/[id]/aulas/[aulaId] -> CORRETO
 * Página de táticas e exercícios — /taticas -> CORRETO
 * Guia de movimentos — /movimentos -> CORRETO
-* Dashboard do aluno — /painel -> PROCESSO
-* Perfil e configurações — /perfil -> PROCESSO
-* Login e cadastro — /login e /cadastro -> PROCESSO
+* Login e cadastro — /login e /cadastro -> CORRETO
+* Dashboard do aluno — /painel -> CORRETO
+* Perfil e configurações — /perfil -> CORRETO
 * Painel administrativo — /admin -> PROCESSO

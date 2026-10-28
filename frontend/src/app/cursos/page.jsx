@@ -1,10 +1,56 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import "./cursos.css";
-const cursos = require("../../../../backend/data/curso.json");
 
 export default function Cursos() {
+  const [cursos, setCursos] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [busca, setBusca] = useState("");
+  const [tagsSelecionadas, setTagsSelecionadas] = useState([]);
+
+  useEffect(() => {
+    async function buscarCursos() {
+      try {
+        const res = await fetch("http://localhost:5000/cursos");
+        if (res.ok) {
+          const dados = await res.json();
+          setCursos(Array.isArray(dados) ? dados : dados.dados || []);
+        }
+      } catch (erro) {
+        console.error(erro);
+      } finally {
+        setCarregando(false);
+      }
+    }
+    buscarCursos();
+  }, []);
+
+  function handleTagChange(tag) {
+    if (tagsSelecionadas.includes(tag)) {
+      setTagsSelecionadas(tagsSelecionadas.filter((item) => item !== tag));
+    } else {
+      setTagsSelecionadas([...tagsSelecionadas, tag]);
+    }
+  }
+
+  function limparFiltros() {
+    setBusca("");
+    setTagsSelecionadas([]);
+  }
+
+  const cursosFiltrados = cursos.filter((curso) => {
+    const textoMatch =
+      curso.titulo?.toLowerCase().includes(busca.toLowerCase()) ||
+      curso.descricao?.toLowerCase().includes(busca.toLowerCase());
+    const tagMatch =
+      tagsSelecionadas.length === 0 || tagsSelecionadas.includes(curso.tag);
+    return textoMatch && tagMatch;
+  });
+
+  const contarPorTag = (tag) => cursos.filter((c) => c.tag === tag).length;
+
   return (
     <main>
       <div className="banner-cursos">
@@ -55,115 +101,106 @@ export default function Cursos() {
           </h2>
 
           <div className="filtro-grupo">
-            <h3>Nível de dificuldade</h3>
-
-            <label>
-              <input type="checkbox" />
-              <span>Iniciante</span>
-              <small>(4)</small>
-            </label>
-
-            <label>
-              <input type="checkbox" />
-              <span>Intermediário</span>
-              <small>(5)</small>
-            </label>
-
-            <label>
-              <input type="checkbox" />
-              <span>Avançado</span>
-              <small>(3)</small>
-            </label>
-          </div>
-
-          <div className="filtro-grupo">
-            <h3>Duração</h3>
-
-            <label>
-              <input type="checkbox" />
-              <span>Até 2h</span>
-              <small>(3)</small>
-            </label>
-
-            <label>
-              <input type="checkbox" />
-              <span>2h a 5h</span>
-              <small>(6)</small>
-            </label>
-
-            <label>
-              <input type="checkbox" />
-              <span>Mais de 5h</span>
-              <small>(3)</small>
-            </label>
-          </div>
-
-          <div className="filtro-grupo">
             <h3>Buscar curso</h3>
-
             <div className="filtro-busca">
               <i className="bi bi-search"></i>
-              <input type="text" placeholder="Digite o nome do curso..." />
+              <input
+                type="text"
+                placeholder="Digite o nome do curso..."
+                value={busca}
+                onChange={(e) => setBusca(e.target.value)}
+              />
             </div>
           </div>
 
-          <button className="limpar-filtros">
+          <div className="filtro-grupo">
+            <h3>Nível de dificuldade</h3>
+
+            <label>
+              <input
+                type="checkbox"
+                checked={tagsSelecionadas.includes("Iniciante")}
+                onChange={() => handleTagChange("Iniciante")}
+              />
+              <span>Iniciante</span>
+              <small>({contarPorTag("Iniciante")})</small>
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                checked={tagsSelecionadas.includes("Intermediário")}
+                onChange={() => handleTagChange("Intermediário")}
+              />
+              <span>Intermediário</span>
+              <small>({contarPorTag("Intermediário")})</small>
+            </label>
+
+            <label>
+              <input
+                type="checkbox"
+                checked={tagsSelecionadas.includes("Avançado")}
+                onChange={() => handleTagChange("Avançado")}
+              />
+              <span>Avançado</span>
+              <small>({contarPorTag("Avançado")})</small>
+            </label>
+          </div>
+
+          <button className="limpar-filtros" onClick={limparFiltros}>
             <i className="bi bi-arrow-repeat"></i> Limpar filtros
           </button>
         </aside>
 
         <section className="resultado-cursos">
           <div className="resultado-topo">
-            <p>10 cursos encontrados</p>
+            <p>{cursosFiltrados.length} curso(s) encontrado(s)</p>
+          </div>
 
-            <div className="ordenacao">
-              <label htmlFor="ordenar">Ordenar por:</label>
-              <select id="ordenar">
-                <option>Mais populares</option>
-                <option>Nome do curso</option>
-                <option>Menor duração</option>
-              </select>
+          {carregando ? (
+            <p style={{ padding: "2rem" }}>Carregando cursos do banco...</p>
+          ) : cursosFiltrados.length === 0 ? (
+            <div style={{ padding: "2rem", textAlign: "center" }}>
+              <p>Nenhum curso encontrado com os filtros selecionados.</p>
             </div>
-          </div>
+          ) : (
+            <div className="lista-cursos">
+              {cursosFiltrados.map((item) => {
+                const classeTag = item.tag
+                  ?.toLowerCase()
+                  .normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "");
 
-          <div className="lista-cursos">
-            {cursos.map((item, index) => (
-              <article className="curso" key={index}>
-              <div className="curso-imagem">
-                <img src="/imagens/fundamentos.jpg" alt="Fundamentos do Xadrez" />
-                <span className="nivel iniciante">{item.tag}</span>
-              </div>
+                return (
+                  <article className="curso" key={item.id_curso}>
+                    <div className="curso-imagem">
+                      <img src={item.imagem} alt={item.titulo} />
+                      <span className={`nivel ${classeTag}`}>{item.tag}</span>
+                    </div>
 
-              <div className="curso-conteudo">
-                <h3>{item.titulo}</h3>
-                <p>
-                  {item.descricao}
-                </p>
+                    <div className="curso-conteudo">
+                      <h3>{item.titulo}</h3>
+                      <p>{item.descricao}</p>
 
-                <div className="curso-info">
-                  <span><i className="bi bi-journal-bookmark"></i> {item.modulos} módulos</span>
-                  <span><i className="bi bi-clock"></i> 2h 30min</span>
-                </div>
+                      <div className="curso-info">
+                        <span>
+                          <i className="bi bi-journal-bookmark"></i>{" "}
+                          {item.modulos} módulos
+                        </span>
+                        <span>
+                          <i className="bi bi-clock"></i> {item.duracao}
+                        </span>
+                      </div>
 
-                <Link href="/cursos/1" className="curso-detalhes">
-                  Ver detalhes <i className="bi bi-arrow-right"></i>
-                </Link>
-              </div>
-            </article>
-            ))}
-          </div>
-
-          <div className="paginacao">
-            <button disabled>
-              <i className="bi bi-chevron-left"></i>
-            </button>
-            <button className="pagina-ativa">1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>
-              <i className="bi bi-chevron-right"></i>
-            </button>
-          </div>
+                      <Link href={`/cursos/${item.id_curso}`} className="curso-detalhes">
+                        Ver detalhes <i className="bi bi-arrow-right"></i>
+                      </Link>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          )}
         </section>
       </div>
     </main>

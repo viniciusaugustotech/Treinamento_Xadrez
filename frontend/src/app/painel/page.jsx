@@ -2,24 +2,109 @@
 
 import Link from "next/link";
 import "./painel.css";
+import { useEffect, useState } from "react";
 
 export default function Painel() {
+    const [usuario, setUsuario] = useState(null);
+    const [totalCursos, setTotalCursos] = useState(0);
+    const [totalAulas, setTotalAulas] = useState(0);
+    const [progresso, setProgresso] = useState(0);
+    const [carregando, setCarregando] = useState(true);
+
+    useEffect(() => {
+        async function carregarDadosPainel() {
+            try {
+                const usuarioSalvo = localStorage.getItem("usuario");
+                if (!usuarioSalvo) {
+                    setCarregando(false);
+                    return;
+                }
+
+                const dadosLocais = JSON.parse(usuarioSalvo);
+                const idProcurado = Number(dadosLocais.id_usuario || dadosLocais.id);
+
+                if (!idProcurado) {
+                    setCarregando(false);
+                    return;
+                }
+
+                const res = await fetch("http://localhost:5000/usuarios");
+                const listaUsuarios = await res.json();
+                const usuariosArray = Array.isArray(listaUsuarios) ? listaUsuarios : (listaUsuarios.dados || []);
+
+                const usuarioBanco = usuariosArray.find(
+                    u => Number(u.id_usuario || u.id) === idProcurado
+                );
+
+                if (usuarioBanco) {
+                    setUsuario(usuarioBanco);
+
+                    const cursos = usuarioBanco.cursos_inscritos || [];
+                    const aulas = usuarioBanco.aulas_concluidas || [];
+
+                    const qtdCursos = cursos.length;
+                    const qtdAulas = aulas.length;
+
+                    setTotalCursos(qtdCursos);
+                    setTotalAulas(qtdAulas);
+
+                    if (qtdCursos > 0) {
+                        const totalAulasEstimadas = qtdCursos * 10; 
+                        const pctCalculada = Math.min(Math.round((qtdAulas / totalAulasEstimadas) * 100), 100);
+                        setProgresso(pctCalculada);
+                    } else {
+                        setProgresso(0);
+                    }
+                } else {
+                    setUsuario(dadosLocais);
+                }
+
+            } catch (erro) {
+                console.error("Erro ao carregar dados do painel:", erro);
+            } finally {
+                setCarregando(false);
+            }
+        }
+
+        carregarDadosPainel();
+    }, []);
+
+    if (carregando) {
+        return (
+            <main className="pagina-painel">
+                <p style={{ padding: "2rem" }}>Carregando dados do painel...</p>
+            </main>
+        );
+    }
+
+    if (!usuario) {
+        return (
+            <main className="pagina-painel" style={{ padding: "2rem", textAlign: "center" }}>
+                <h2>Acesso restrito</h2>
+                <p>Você precisa estar logado para acessar o painel.</p>
+                <br />
+                <Link href="/login" style={{ textDecoration: "underline", color: "#0070f3" }}>
+                    Ir para o Login
+                </Link>
+            </main>
+        );
+    }
 
     return (
         <main className="pagina-painel">
             <section className="painel-boas-vindas">
                 <div>
                     <span className="painel-etiqueta">ÁREA DO ALUNO</span>
-                    <h1>Bem-vindo de volta!</h1>
+                    <h1>Bem-vindo de volta, {usuario.nome_usuario || usuario.nome || "Enxadrista"}!</h1>
                     <p>
                         Aproveite as estatísticas, pratique suas habilidades
                         e avance no seu caminho para dominar o xadrez.
                     </p>
                 </div>
 
-                <div className="painel-imagem">
+                <div className="painel-imagem" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <img
-                        src="/imagens/estrategia.jpg"
+                        src="/imagens/tabuleiro.jpg"
                         alt="Tabuleiro de xadrez"
                     />
                 </div>
@@ -32,7 +117,7 @@ export default function Painel() {
                     </div>
                     <div>
                         <span>Cursos inscritos</span>
-                        <h2>3</h2>
+                        <h2>{totalCursos}</h2>
                     </div>
                 </article>
 
@@ -42,7 +127,7 @@ export default function Painel() {
                     </div>
                     <div>
                         <span>Aulas concluídas</span>
-                        <h2>12</h2>
+                        <h2>{totalAulas}</h2>
                     </div>
                 </article>
 
@@ -52,7 +137,7 @@ export default function Painel() {
                     </div>
                     <div>
                         <span>Progresso geral</span>
-                        <h2>40%</h2>
+                        <h2>{progresso}%</h2>
                     </div>
                 </article>
             </section>

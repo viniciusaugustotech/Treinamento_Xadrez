@@ -37,7 +37,7 @@ app.get('/api/check', (_req, res) => res.status(200).json({ status: 'ok' }));
 app.use('/auth', authRouter);
 app.use('/cursos', cursoRouter);
 app.use('/usuarios', usuarioRouter);
-app.use('/cursos/:id/aulas/', aulaRouter);
+app.use('/cursos/:id/aulas', aulaRouter);
 app.use('/modulos', moduloRouter);
 
 // 3. Fallback 404
