@@ -1,12 +1,9 @@
-
 "use client";
 
-import { aplicarEstilo } from "@backend/utils/cursos.js";
 import Link from "next/link";
 import "./movimentos.css";
 
 export default function Movimentos() {
-    aplicarEstilo();
 
     return (
         <main className="pagina-movimentos">

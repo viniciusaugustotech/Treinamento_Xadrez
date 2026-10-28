@@ -1,11 +1,9 @@
 "use client";
 
-import { aplicarEstilo } from "@backend/utils/cursos.js";
 import Link from "next/link";
 import "./taticas.css";
 
 export default function Taticas() {
-    aplicarEstilo();
 
     return (
         <div className="pagina-taticas">

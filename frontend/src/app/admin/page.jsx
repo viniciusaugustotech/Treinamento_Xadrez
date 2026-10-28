@@ -1,12 +1,9 @@
-
 "use client";
 
-import { aplicarEstilo } from "@backend/utils/cursos.js";
 import Link from "next/link";
 import "./admin.css";
 
 export default function Admin() {
-    aplicarEstilo();
 
     return (
         <main className="admin-pagina">

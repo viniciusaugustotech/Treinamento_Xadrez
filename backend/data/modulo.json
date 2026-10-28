@@ -1,251 +1,272 @@
-{
-    "1": [
-      {
-        "id_modulo": 1,
-        "ordem": "01",
-        "titulo": "Conhecendo o xadrez",
-        "aulas_qtd": 4,
-        "duracao": "25 minutos",
-        "id_aula": [1, 2, 3, 4]
-      },
-      {
-        "id_modulo": 2,
-        "ordem": "02",
-        "titulo": "O Movimento das Peças",
-        "aulas_qtd": 4,
-        "duracao": "35 minutos",
-        "id_aula": [5, 6, 7, 8]
-      },
-      {
-        "id_modulo": 3,
-        "ordem": "03",
-        "titulo": "Regras Especiais e Fundamentais",
-        "aulas_qtd": 4,
-        "duracao": "30 minutos",
-        "id_aula": [9, 10, 11, 12]
-      },
-      {
-        "id_modulo": 4,
-        "ordem": "04",
-        "titulo": "Finalizações de Partida",
-        "aulas_qtd": 4,
-        "duracao": "30 minutos",
-        "id_aula": [13, 14, 15, 16]
-      },
-      {
-        "id_modulo": 5,
-        "ordem": "05",
-        "titulo": "Primeiras Estratégias",
-        "aulas_qtd": 4,
-        "duracao": "30 minutos",
-        "id_aula": [17, 18, 19, 20]
-      }
-    ],
-    "2": [
-      {
-        "id_modulo": 6,
-        "ordem": "01",
-        "titulo": "Introdução ao Olhar Tático",
-        "aulas_qtd": 3,
-        "duracao": "30 minutos",
-        "id_aula": [21, 22, 23]
-      },
-      {
-        "id_modulo": 7,
-        "ordem": "02",
-        "titulo": "Ataques Duplos e Garfos",
-        "aulas_qtd": 3,
-        "duracao": "35 minutos",
-        "id_aula": [24, 25, 26]
-      },
-      {
-        "id_modulo": 8,
-        "ordem": "03",
-        "titulo": "Cravadas e Raios-X",
-        "aulas_qtd": 3,
-        "duracao": "30 minutos",
-        "id_aula": [27, 28, 29]
-      },
-      {
-        "id_modulo": 9,
-        "ordem": "04",
-        "titulo": "Ataques Descobertos",
-        "aulas_qtd": 3,
-        "duracao": "30 minutos",
-        "id_aula": [30, 31, 32]
-      },
-      {
-        "id_modulo": 10,
-        "ordem": "05",
-        "titulo": "Desvios e Atrações",
-        "aulas_qtd": 3,
-        "duracao": "32 minutos",
-        "id_aula": [33, 34, 35]
-      },
-      {
-        "id_modulo": 11,
-        "ordem": "06",
-        "titulo": "Destruição de Defesa e Bloqueio",
-        "aulas_qtd": 3,
-        "duracao": "30 minutos",
-        "id_aula": [36, 37, 38]
-      },
-      {
-        "id_modulo": 12,
-        "ordem": "07",
-        "titulo": "Cálculo de Variantes",
-        "aulas_qtd": 3,
-        "duracao": "33 minutos",
-        "id_aula": [39, 40, 41]
-      },
-      {
-        "id_modulo": 13,
-        "ordem": "08",
-        "titulo": "Padrões de Mate Comuns",
-        "aulas_qtd": 3,
-        "duracao": "35 minutos",
-        "id_aula": [42, 43, 44]
-      }
-    ],
-    "3": [
-      {
-        "id_modulo": 14,
-        "ordem": "01",
-        "titulo": "Avaliação Posicional",
-        "aulas_qtd": 3,
-        "duracao": "40 minutos",
-        "id_aula": [45, 46, 47]
-      },
-      {
-        "id_modulo": 15,
-        "ordem": "02",
-        "titulo": "Estruturas de Peões",
-        "aulas_qtd": 3,
-        "duracao": "42 minutos",
-        "id_aula": [48, 49, 50]
-      },
-      {
-        "id_modulo": 16,
-        "ordem": "03",
-        "titulo": "Controle de Linhas Abertas",
-        "aulas_qtd": 3,
-        "duracao": "38 minutos",
-        "id_aula": [51, 52, 53]
-      },
-      {
-        "id_modulo": 17,
-        "ordem": "04",
-        "titulo": "Casas Fracas e Fortes",
-        "aulas_qtd": 3,
-        "duracao": "40 minutos",
-        "id_aula": [54, 55, 56]
-      },
-      {
-        "id_modulo": 18,
-        "ordem": "05",
-        "titulo": "O Par de Bispos",
-        "aulas_qtd": 3,
-        "duracao": "40 minutos",
-        "id_aula": [57, 58, 59]
-      },
-      {
-        "id_modulo": 19,
-        "ordem": "06",
-        "titulo": "Manobras de Cavalos",
-        "aulas_qtd": 3,
-        "duracao": "41 minutos",
-        "id_aula": [60, 61, 62]
-      },
-      {
-        "id_modulo": 20,
-        "ordem": "07",
-        "titulo": "Vantagem de Espaço",
-        "aulas_qtd": 3,
-        "duracao": "40 minutos",
-        "id_aula": [63, 64, 65]
-      },
-      {
-        "id_modulo": 21,
-        "ordem": "08",
-        "titulo": "Profilaxia",
-        "aulas_qtd": 3,
-        "duracao": "42 minutos",
-        "id_aula": [66, 67, 68]
-      },
-      {
-        "id_modulo": 22,
-        "ordem": "09",
-        "titulo": "A Luta Central",
-        "aulas_qtd": 3,
-        "duracao": "40 minutos",
-        "id_aula": [69, 70, 71]
-      },
-      {
-        "id_modulo": 23,
-        "ordem": "10",
-        "titulo": "Transição para Finais Posicionais",
-        "aulas_qtd": 3,
-        "duracao": "42 minutos",
-        "id_aula": [72, 73, 74]
-      }
-    ],
-    "4": [
-      {
-        "id_modulo": 24,
-        "ordem": "01",
-        "titulo": "Princípios Fundamentais da Abertura",
-        "aulas_qtd": 3,
-        "duracao": "30 minutos",
-        "id_aula": [75, 76, 77]
-      },
-      {
-        "id_modulo": 25,
-        "ordem": "02",
-        "titulo": "A Abertura Italiana",
-        "aulas_qtd": 3,
-        "duracao": "33 minutos",
-        "id_aula": [78, 79, 80]
-      },
-      {
-        "id_modulo": 26,
-        "ordem": "03",
-        "titulo": "A Abertura Ruy Lopez (Espanhola)",
-        "aulas_qtd": 3,
-        "duracao": "35 minutos",
-        "id_aula": [81, 82, 83]
-      },
-      {
-        "id_modulo": 27,
-        "ordem": "04",
-        "titulo": "O Gambito da Dama",
-        "aulas_qtd": 3,
-        "duracao": "32 minutos",
-        "id_aula": [84, 85, 86]
-      },
-      {
-        "id_modulo": 28,
-        "ordem": "05",
-        "titulo": "Defesa Siciliana: Visão Geral",
-        "aulas_qtd": 3,
-        "duracao": "35 minutos",
-        "id_aula": [87, 88, 89]
-      },
-      {
-        "id_modulo": 29,
-        "ordem": "06",
-        "titulo": "Defesas Semi-Abertas (Francesa e Caro-Kann)",
-        "aulas_qtd": 3,
-        "duracao": "33 minutos",
-        "id_aula": [90, 91, 92]
-      },
-      {
-        "id_modulo": 30,
-        "ordem": "07",
-        "titulo": "Construindo seu Repertório",
-        "aulas_qtd": 3,
-        "duracao": "32 minutos",
-        "id_aula": [93, 94, 95]
-      }
-    ]
+[
+  {
+    "id_curso": 1,
+    "id_modulo": 1,
+    "ordem": "01",
+    "titulo": "Conhecendo o xadrez",
+    "aulas_qtd": 4,
+    "duracao": "25 minutos",
+    "id_aula": [1, 2, 3, 4]
+  },
+  {
+    "id_curso": 1,
+    "id_modulo": 2,
+    "ordem": "02",
+    "titulo": "O Movimento das Peças",
+    "aulas_qtd": 4,
+    "duracao": "35 minutos",
+    "id_aula": [5, 6, 7, 8]
+  },
+  {
+    "id_curso": 1,
+    "id_modulo": 3,
+    "ordem": "03",
+    "titulo": "Regras Especiais e Fundamentais",
+    "aulas_qtd": 4,
+    "duracao": "30 minutos",
+    "id_aula": [9, 10, 11, 12]
+  },
+  {
+    "id_curso": 1,
+    "id_modulo": 4,
+    "ordem": "04",
+    "titulo": "Finalizações de Partida",
+    "aulas_qtd": 4,
+    "duracao": "30 minutos",
+    "id_aula": [13, 14, 15, 16]
+  },
+  {
+    "id_curso": 1,
+    "id_modulo": 5,
+    "ordem": "05",
+    "titulo": "Primeiras Estratégias",
+    "aulas_qtd": 4,
+    "duracao": "30 minutos",
+    "id_aula": [17, 18, 19, 20]
+  },
+  {
+    "id_curso": 2,
+    "id_modulo": 6,
+    "ordem": "01",
+    "titulo": "Introdução ao Olhar Tático",
+    "aulas_qtd": 3,
+    "duracao": "30 minutos",
+    "id_aula": [21, 22, 23]
+  },
+  {
+    "id_curso": 2,
+    "id_modulo": 7,
+    "ordem": "02",
+    "titulo": "Ataques Duplos e Garfos",
+    "aulas_qtd": 3,
+    "duracao": "35 minutos",
+    "id_aula": [24, 25, 26]
+  },
+  {
+    "id_curso": 2,
+    "id_modulo": 8,
+    "ordem": "03",
+    "titulo": "Cravadas e Raios-X",
+    "aulas_qtd": 3,
+    "duracao": "30 minutos",
+    "id_aula": [27, 28, 29]
+  },
+  {
+    "id_curso": 2,
+    "id_modulo": 9,
+    "ordem": "04",
+    "titulo": "Ataques Descobertos",
+    "aulas_qtd": 3,
+    "duracao": "30 minutos",
+    "id_aula": [30, 31, 32]
+  },
+  {
+    "id_curso": 2,
+    "id_modulo": 10,
+    "ordem": "05",
+    "titulo": "Desvios e Atrações",
+    "aulas_qtd": 3,
+    "duracao": "32 minutos",
+    "id_aula": [33, 34, 35]
+  },
+  {
+    "id_curso": 2,
+    "id_modulo": 11,
+    "ordem": "06",
+    "titulo": "Destruição de Defesa e Bloqueio",
+    "aulas_qtd": 3,
+    "duracao": "30 minutos",
+    "id_aula": [36, 37, 38]
+  },
+  {
+    "id_curso": 2,
+    "id_modulo": 12,
+    "ordem": "07",
+    "titulo": "Cálculo de Variantes",
+    "aulas_qtd": 3,
+    "duracao": "33 minutos",
+    "id_aula": [39, 40, 41]
+  },
+  {
+    "id_curso": 2,
+    "id_modulo": 13,
+    "ordem": "08",
+    "titulo": "Padrões de Mate Comuns",
+    "aulas_qtd": 3,
+    "duracao": "35 minutos",
+    "id_aula": [42, 43, 44]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 14,
+    "ordem": "01",
+    "titulo": "Avaliação Posicional",
+    "aulas_qtd": 3,
+    "duracao": "40 minutos",
+    "id_aula": [45, 46, 47]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 15,
+    "ordem": "02",
+    "titulo": "Estruturas de Peões",
+    "aulas_qtd": 3,
+    "duracao": "42 minutos",
+    "id_aula": [48, 49, 50]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 16,
+    "ordem": "03",
+    "titulo": "Controle de Linhas Abertas",
+    "aulas_qtd": 3,
+    "duracao": "38 minutos",
+    "id_aula": [51, 52, 53]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 17,
+    "ordem": "04",
+    "titulo": "Casas Fracas e Fortes",
+    "aulas_qtd": 3,
+    "duracao": "40 minutos",
+    "id_aula": [54, 55, 56]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 18,
+    "ordem": "05",
+    "titulo": "O Par de Bispos",
+    "aulas_qtd": 3,
+    "duracao": "40 minutos",
+    "id_aula": [57, 58, 59]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 19,
+    "ordem": "06",
+    "titulo": "Manobras de Cavalos",
+    "aulas_qtd": 3,
+    "duracao": "41 minutos",
+    "id_aula": [60, 61, 62]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 20,
+    "ordem": "07",
+    "titulo": "Vantagem de Espaço",
+    "aulas_qtd": 3,
+    "duracao": "40 minutos",
+    "id_aula": [63, 64, 65]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 21,
+    "ordem": "08",
+    "titulo": "Profilaxia",
+    "aulas_qtd": 3,
+    "duracao": "42 minutos",
+    "id_aula": [66, 67, 68]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 22,
+    "ordem": "09",
+    "titulo": "A Luta Central",
+    "aulas_qtd": 3,
+    "duracao": "40 minutos",
+    "id_aula": [69, 70, 71]
+  },
+  {
+    "id_curso": 3,
+    "id_modulo": 23,
+    "ordem": "10",
+    "titulo": "Transição para Finais Posicionais",
+    "aulas_qtd": 3,
+    "duracao": "42 minutos",
+    "id_aula": [72, 73, 74]
+  },
+  {
+    "id_curso": 4,
+    "id_modulo": 24,
+    "ordem": "01",
+    "titulo": "Princípios Fundamentais da Abertura",
+    "aulas_qtd": 3,
+    "duracao": "30 minutos",
+    "id_aula": [75, 76, 77]
+  },
+  {
+    "id_curso": 4,
+    "id_modulo": 25,
+    "ordem": "02",
+    "titulo": "A Abertura Italiana",
+    "aulas_qtd": 3,
+    "duracao": "33 minutos",
+    "id_aula": [78, 79, 80]
+  },
+  {
+    "id_curso": 4,
+    "id_modulo": 26,
+    "ordem": "03",
+    "titulo": "A Abertura Ruy Lopez (Espanhola)",
+    "aulas_qtd": 3,
+    "duracao": "35 minutos",
+    "id_aula": [81, 82, 83]
+  },
+  {
+    "id_curso": 4,
+    "id_modulo": 27,
+    "ordem": "04",
+    "titulo": "O Gambito da Dama",
+    "aulas_qtd": 3,
+    "duracao": "32 minutos",
+    "id_aula": [84, 85, 86]
+  },
+  {
+    "id_curso": 4,
+    "id_modulo": 28,
+    "ordem": "05",
+    "titulo": "Defesa Siciliana: Visão Geral",
+    "aulas_qtd": 3,
+    "duracao": "35 minutos",
+    "id_aula": [87, 88, 89]
+  },
+  {
+    "id_curso": 4,
+    "id_modulo": 29,
+    "ordem": "06",
+    "titulo": "Defesas Semi-Abertas (Francesa e Caro-Kann)",
+    "aulas_qtd": 3,
+    "duracao": "33 minutos",
+    "id_aula": [90, 91, 92]
+  },
+  {
+    "id_curso": 4,
+    "id_modulo": 30,
+    "ordem": "07",
+    "titulo": "Construindo seu Repertório",
+    "aulas_qtd": 3,
+    "duracao": "32 minutos",
+    "id_aula": [93, 94, 95]
   }
-  
+]

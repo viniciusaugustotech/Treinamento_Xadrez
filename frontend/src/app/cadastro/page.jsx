@@ -1,12 +1,9 @@
-
 "use client";
 
-import { aplicarEstilo } from "@backend/utils/cursos.js";
 import Link from "next/link";
 import "../login/auth.css";
 
 export default function Cadastro() {
-    aplicarEstilo();
 
     return (
         <main className="auth-pagina">

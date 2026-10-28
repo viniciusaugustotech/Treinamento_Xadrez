@@ -57,10 +57,15 @@ export default function DetalhesCurso() {
                         </div>
                     </div>
 
-                    <Link href="#conteudo-curso" className="detalhes-botao">
-                        Começar curso
-                        <i className="bi bi-arrow-right"></i>
-                    </Link>
+                    {idCurso && aulas && aulas[idCurso] ? (
+                        <Link href={`/cursos/${idCurso}/aulas/${aulas["1"][0].id_aula}`} className="detalhes-botao">
+                            Começar curso
+                            <i className="bi bi-arrow-right"></i>
+                        </Link>
+                        ) : (
+                        <button className="detalhes-botao" disabled>Carregando...</button>
+                        )}
+
                 </div>
 
                 <div className="detalhes-capa">
@@ -108,7 +113,7 @@ export default function DetalhesCurso() {
                         </p>
 
                         <div className="detalhes-modulos">
-                            {modulos[idCurso].map((mod, index) => (
+                            {modulos.filter(item => item.id_curso == idCurso).map((mod, index) => (
                                 <div className="detalhes-modulo" key={index}>
                                 <div className="detalhes-modulo-topo">
                                     <div className="detalhes-modulo-numero">

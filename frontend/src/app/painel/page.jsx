@@ -1,12 +1,9 @@
-
 "use client";
 
-import { aplicarEstilo } from "@backend/utils/cursos.js";
 import Link from "next/link";
 import "./painel.css";
 
 export default function Painel() {
-    aplicarEstilo();
 
     return (
         <main className="pagina-painel">
