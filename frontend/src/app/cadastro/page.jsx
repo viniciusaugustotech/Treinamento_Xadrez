@@ -18,16 +18,24 @@ export default function Cadastro() {
                     <p>Comece sua jornada e desenvolva suas habilidades no xadrez.</p>
                 </div>
 
-                <form className="auth-form">
+                <form className="auth-form" action="/auth" method="POST">
+                    
+                    {/* ENVIADO AO BANCO: foto_perfil (Valor padrão automático oculto) */}
+                    <input 
+                        type="hidden" 
+                        name="foto_perfil" 
+                        value="/imagens/avatar-default.png" 
+                    />
+
                     <div className="auth-campo">
-                        <label htmlFor="nome">Nome completo</label>
+                        <label htmlFor="nome_usuario">Nome de usuário</label>
                         <div className="auth-input">
                             <i className="bi bi-person"></i>
                             <input
                                 type="text"
-                                id="nome"
-                                placeholder="Digite seu nome"
-                                autoComplete="name"
+                                id="nome_usuario"
+                                name="nome_usuario"
+                                placeholder="Crie seu usuário (ex: rafa_grandmaster)"
                                 required
                             />
                         </div>
@@ -40,10 +48,37 @@ export default function Cadastro() {
                             <input
                                 type="email"
                                 id="email"
+                                name="email"
                                 placeholder="Digite seu e-mail"
                                 autoComplete="email"
                                 required
                             />
+                        </div>
+                    </div>
+
+                    <div className="auth-campo">
+                        <label htmlFor="nivel_xadrez">Nível de xadrez</label>
+                        <div className="auth-input">
+                            <i className="bi bi-bar-chart"></i>
+                            <select id="nivel_xadrez" name="nivel_xadrez" required style={{ width: "100%", paddingLeft: "10px", background: "transparent", border: "none", outline: "none" }}>
+                                <option value="Iniciante">Iniciante</option>
+                                <option value="Intermediário">Intermediário</option>
+                                <option value="Avançado">Avançado</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className="auth-campo">
+                        <label htmlFor="sobre_mim">Sobre mim</label>
+                        <div className="auth-input" style={{ height: "auto" }}>
+                            <textarea
+                                id="sobre_mim"
+                                name="sobre_mim"
+                                placeholder="Fale um pouco sobre você e seus objetivos..."
+                                rows="3"
+                                style={{ width: "100%", padding: "10px", background: "transparent", border: "none", outline: "none", resize: "none", font: "inherit" }}
+                                required
+                            ></textarea>
                         </div>
                     </div>
 
@@ -54,15 +89,13 @@ export default function Cadastro() {
                             <input
                                 type="password"
                                 id="senha"
+                                name="senha"
                                 placeholder="Crie uma senha"
                                 autoComplete="new-password"
                                 minLength="8"
                                 required
                             />
                         </div>
-                        <span className="auth-ajuda">
-                            Utilize pelo menos 8 caracteres.
-                        </span>
                     </div>
 
                     <div className="auth-campo">
@@ -80,17 +113,7 @@ export default function Cadastro() {
                         </div>
                     </div>
 
-                    <label className="auth-termos">
-                        <input type="checkbox" required />
-                        <span>
-                            Li e concordo com os{" "}
-                            <Link href="/termos">termos de uso</Link>
-                            {" "}e a{" "}
-                            <Link href="/privacidade">política de privacidade</Link>.
-                        </span>
-                    </label>
-
-                    <button type="submit" className="auth-botao">
+                    <button type="submit" className="auth-botao" style={{ marginTop: "15px" }}>
                         Criar minha conta
                     </button>
                 </form>

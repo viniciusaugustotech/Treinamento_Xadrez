@@ -26,7 +26,7 @@ export default function Taticas() {
 
                 <div className="taticas-imagem">
                     <img
-                        src="/imagens/taticas.jpg"
+                        src="/imagens/taticas_1.jpg"
                         alt="Peças de xadrez para treinamento de táticas"
                     />
                 </div>
@@ -128,7 +128,7 @@ export default function Taticas() {
 
                 <div className="taticas-desafio-imagem">
                     <img
-                        src="/imagens/estrategia.jpg"
+                        src="/imagens/taticas_2.jpg"
                         alt="Peças de xadrez em uma posição estratégica"
                     />
                 </div>

@@ -14,7 +14,20 @@ export default function DetalhesCurso() {
 
     const params = useParams();
     const idCurso = params.id;
+    
     const curso = cursos.find(item => String(item.id_curso) === String(idCurso));
+
+    const modulosDoCurso = modulos.filter(mod => String(mod.id_curso) === String(idCurso));
+    const primeiroModulo = modulosDoCurso[0];
+
+    const aulasDoPrimeiroModulo = primeiroModulo 
+        ? aulas.filter(aula => String(aula.id_modulo) === String(primeiroModulo.id_modulo))
+        : [];
+    const primeiraAulaId = aulasDoPrimeiroModulo[0]?.id_aula;
+
+    if (!curso) {
+        return <div className="detalhes-pagina"><p>Curso não encontrado</p></div>;
+    }
 
     if (!curso) {
         return <div className="detalhes-pagina"><p>Curso não encontrado</p></div>
@@ -58,7 +71,7 @@ export default function DetalhesCurso() {
                     </div>
 
                     {idCurso && aulas && aulas[idCurso] ? (
-                        <Link href={`/cursos/${idCurso}/aulas/${aulas["1"][0].id_aula}`} className="detalhes-botao">
+                        <Link href={`/cursos/${idCurso}/aulas/${primeiraAulaId}`} className="detalhes-botao">
                             Começar curso
                             <i className="bi bi-arrow-right"></i>
                         </Link>
@@ -130,8 +143,8 @@ export default function DetalhesCurso() {
 
                                 <div className="detalhes-aulas">
                                     {
-                                        aulas[mod.id_modulo].map((aula, index) => (
-                                            <div key={index}>
+                                        aulas.filter(obj => String(obj.id_modulo) === String(mod.id_modulo)).map((aula) => (
+                                            <div key={aula.id_aula}>
                                                 <i className="bi bi-play-circle"></i>
                                                 <span>{aula.titulo}</span>
                                                 <span>{aula.duracao}</span>

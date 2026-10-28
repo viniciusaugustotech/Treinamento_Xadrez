@@ -12,7 +12,7 @@ export default function Painel() {
                     <span className="painel-etiqueta">ÁREA DO ALUNO</span>
                     <h1>Bem-vindo de volta!</h1>
                     <p>
-                        Continue aprendendo, pratique suas habilidades
+                        Aproveite as estatísticas, pratique suas habilidades
                         e avance no seu caminho para dominar o xadrez.
                     </p>
                 </div>
@@ -55,78 +55,6 @@ export default function Painel() {
                         <h2>40%</h2>
                     </div>
                 </article>
-            </section>
-
-            <section className="painel-secao">
-                <div className="painel-titulo">
-                    <div>
-                        <h2>Continue aprendendo</h2>
-                        <p>Retome seus cursos de onde parou.</p>
-                    </div>
-                    <Link href="/cursos">Ver cursos</Link>
-                </div>
-
-                <div className="painel-cursos">
-                    <article className="painel-curso">
-                        <img
-                            src="/imagens/fundamentos.jpg"
-                            alt="Curso de fundamentos do xadrez"
-                        />
-                        <div className="painel-curso-conteudo">
-                            <span className="painel-curso-categoria">
-                                INICIANTE
-                            </span>
-                            <h3>Fundamentos do Xadrez</h3>
-                            <p>Aprenda as regras e os conceitos básicos.</p>
-
-                            <div className="painel-progresso-texto">
-                                <span>Progresso</span>
-                                <span>60%</span>
-                            </div>
-
-                            <div className="painel-barra">
-                                <div className="painel-barra-preenchida sessenta"></div>
-                            </div>
-
-                            <Link
-                                href="/cursos/1/aulas/1"
-                                className="painel-botao"
-                            >
-                                Continuar aula
-                            </Link>
-                        </div>
-                    </article>
-
-                    <article className="painel-curso">
-                        <img
-                            src="/imagens/estrategia.jpg"
-                            alt="Curso de estratégia no xadrez"
-                        />
-                        <div className="painel-curso-conteudo">
-                            <span className="painel-curso-categoria">
-                                INTERMEDIÁRIO
-                            </span>
-                            <h3>Estratégias de Xadrez</h3>
-                            <p>Aprenda a planejar suas próximas jogadas.</p>
-
-                            <div className="painel-progresso-texto">
-                                <span>Progresso</span>
-                                <span>20%</span>
-                            </div>
-
-                            <div className="painel-barra">
-                                <div className="painel-barra-preenchida vinte"></div>
-                            </div>
-
-                            <Link
-                                href="/cursos/2"
-                                className="painel-botao"
-                            >
-                                Ver curso
-                            </Link>
-                        </div>
-                    </article>
-                </div>
             </section>
 
             <section className="painel-secao">

@@ -31,13 +31,13 @@ CORES: Principal: #24384B; Destaques e Botões: #FF4B1F; Elementos secundários:
 
 PAGINAS DO PROJETO: 
 
-* Página inicial — /
-* Página de cursos — /cursos
-* Detalhes do curso — /cursos/[id]
-* Página de aulas — /cursos/[id]/aulas/[aulaId]
-* Página de táticas e exercícios — /taticas
-* Guia de movimentos — /movimentos
-* Dashboard do aluno — /painel
-* Perfil e configurações — /perfil
-* Login e cadastro — /login e /cadastro
-* Painel administrativo — /admin
+* Página inicial — / -> CORRETO
+* Página de cursos — /cursos -> CORRETO
+* Detalhes do curso — /cursos/[id] -> CORRETO
+* Página de aulas — /cursos/[id]/aulas/[aulaId] -> CORRETO
+* Página de táticas e exercícios — /taticas -> CORRETo
+* Guia de movimentos — /movimentos -> CORRETO
+* Dashboard do aluno — /painel -> PROCESSO
+* Perfil e configurações — /perfil -> PROCESSO
+* Login e cadastro — /login e /cadastro -> PROCESSO
+* Painel administrativo — /admin -> PROCESSO

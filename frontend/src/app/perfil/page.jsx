@@ -29,16 +29,6 @@ export default function Perfil() {
                         Dados pessoais
                     </a>
 
-                    <a href="#conta" className="perfil-menu-item">
-                        <i className="bi bi-shield-lock"></i>
-                        Conta e segurança
-                    </a>
-
-                    <a href="#notificacoes" className="perfil-menu-item">
-                        <i className="bi bi-bell"></i>
-                        Notificações
-                    </a>
-
                     <Link href="/painel" className="perfil-menu-item">
                         <i className="bi bi-arrow-left"></i>
                         Voltar ao painel
@@ -59,13 +49,13 @@ export default function Perfil() {
                             <div className="perfil-foto-avatar">
                                 <i className="bi bi-person-fill"></i>
                             </div>
+                            </div>
                             <div>
                                 <h3>Sua foto de perfil</h3>
                                 <p>Personalize sua conta com uma foto.</p>
-                            </div>
                         </div>
 
-                        <form>
+                        <form action="/perfil" method="POST">
                             <div className="perfil-form-grid">
                                 <div className="perfil-campo">
                                     <label htmlFor="nome">Nome completo</label>
@@ -116,6 +106,24 @@ export default function Perfil() {
                                         placeholder="Conte um pouco sobre você e seus objetivos no xadrez."
                                     ></textarea>
                                 </div>
+
+                                <div className="perfil-campo">
+                                        <label>Senha</label>
+                                    <input
+                                        type="password"
+                                        id="senha"
+                                        placeholder="Senha@123"
+                                    />
+                                </div>
+
+                                <div className="perfil-campo">
+                                        <label>Foto de Perfil (URL)</label>
+                                    <input
+                                        type="text"
+                                        id="foto"
+                                    />
+                                </div>
+
                             </div>
 
                             <div className="perfil-acoes">
@@ -140,16 +148,6 @@ export default function Perfil() {
 
                         <div className="perfil-seguranca-item">
                             <div>
-                                <h3>Alterar senha</h3>
-                                <p>Atualize sua senha para manter sua conta segura.</p>
-                            </div>
-                            <button type="button" className="perfil-botao secundario">
-                                Alterar senha
-                            </button>
-                        </div>
-
-                        <div className="perfil-seguranca-item">
-                            <div>
                                 <h3>Privacidade da conta</h3>
                                 <p>Suas informações são utilizadas para personalizar sua experiência.</p>
                             </div>
@@ -157,57 +155,6 @@ export default function Perfil() {
                                 <i className="bi bi-lock-fill"></i>
                                 Conta protegida
                             </span>
-                        </div>
-                    </section>
-
-                    <section className="perfil-card" id="notificacoes">
-                        <div className="perfil-card-titulo">
-                            <div>
-                                <h2>Notificações</h2>
-                                <p>Escolha quais avisos deseja receber.</p>
-                            </div>
-                            <i className="bi bi-bell"></i>
-                        </div>
-
-                        <div className="perfil-notificacao">
-                            <div>
-                                <h3>Novas aulas</h3>
-                                <p>Receber avisos sobre novos conteúdos dos cursos.</p>
-                            </div>
-                            <input
-                                type="checkbox"
-                                id="novas-aulas"
-                                defaultChecked
-                            />
-                        </div>
-
-                        <div className="perfil-notificacao">
-                            <div>
-                                <h3>Lembretes de estudo</h3>
-                                <p>Receber lembretes para continuar praticando.</p>
-                            </div>
-                            <input
-                                type="checkbox"
-                                id="lembretes"
-                                defaultChecked
-                            />
-                        </div>
-
-                        <div className="perfil-notificacao">
-                            <div>
-                                <h3>Novidades da plataforma</h3>
-                                <p>Receber informações sobre atualizações e recursos.</p>
-                            </div>
-                            <input
-                                type="checkbox"
-                                id="novidades"
-                            />
-                        </div>
-
-                        <div className="perfil-acoes">
-                            <button type="button" className="perfil-botao principal">
-                                Salvar preferências
-                            </button>
                         </div>
                     </section>
                 </div>

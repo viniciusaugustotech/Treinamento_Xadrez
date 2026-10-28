@@ -35,7 +35,7 @@ configurarSegurancaProdutos(autenticar, autorizarAdmin);
 
 // 3. Rotas da API
 app.get('/api/check', (_req, res) => res.status(200).json({ status: 'ok' }));
-app.use('/api/auth', authRouter);
+app.use('/auth', authRouter);
 app.use('/api/produtos', produtoRouter);
 
 // 4. Fallback 404

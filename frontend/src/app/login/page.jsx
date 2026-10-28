@@ -18,7 +18,7 @@ export default function Login() {
                     <p>Entre na sua conta e continue evoluindo no xadrez.</p>
                 </div>
 
-                <form className="auth-form">
+                <form className="auth-form" action="/auth/login" method="POST">
                     <div className="auth-campo">
                         <label htmlFor="email">E-mail</label>
                         <div className="auth-input">

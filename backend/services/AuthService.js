@@ -1,68 +1,56 @@
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 import * as UsuarioModel from '../models/UsuarioModel.js';
 
-const REGEX_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const jwtSecret = process.env.JWT_SECRET || 'chave-padrao-desenvolvimento';
-
-export async function registrar({ nome, email, senha } = {}) {
-  const nomeLimpo = typeof nome === 'string' ? nome.trim() : '';
-  const emailLimpo = typeof email === 'string' ? email.trim().toLowerCase() : '';
-
-  if (nomeLimpo.length < 3) {
-    throw new TypeError('Nome deve ter no mínimo 3 caracteres.');
+export async function registrar({ foto_perfil, nome_usuario, email, nivel_xadrez, sobre_mim, senha } = {}) {
+  
+  if (!nome_usuario || nome_usuario.trim().length < 3) {
+    throw new Error('O nome de usuário deve ter no mínimo 3 caracteres.');
   }
-  if (!REGEX_EMAIL.test(emailLimpo)) {
-    throw new TypeError('Informe um e-mail válido.');
+  if (!email || !email.includes('@')) {
+    throw new Error('Informe um e-mail válido.');
   }
-  if (
-    typeof senha !== 'string' ||
-    senha.length < 8 ||
-    !/[a-z]/.test(senha) ||
-    !/[A-Z]/.test(senha) ||
-    !/\d/.test(senha) ||
-    !/[^A-Za-z0-9]/.test(senha)
-  ) {
-    throw new TypeError('A senha deve ter no mínimo 8 caracteres, contendo maiúscula, minúscula, número e símbolo.');
+  if (!senha || senha.length < 8) {
+    throw new Error('A senha deve ter no mínimo 8 caracteres.');
   }
 
+  const emailLimpo = email.trim().toLowerCase();
   const usuarioExistente = await UsuarioModel.buscarPorEmail(emailLimpo);
   if (usuarioExistente) {
-    const erro = new Error('E-mail já cadastrado.');
-    erro.status = 409;
-    throw erro;
+    throw new Error('E-mail já cadastrado.');
   }
 
   const senhaHash = await bcrypt.hash(senha, 10);
   return await UsuarioModel.criar({
-    nome: nomeLimpo,
+    nome_usuario: nome_usuario.trim(),
     email: emailLimpo,
-    senhaHash,
+    nivel: nivel_xadrez || "Iniciante",
+    sobre_mim: sobre_mim || "",
+    senha,
     perfil: 'usuario'
   });
 }
 
 export async function login({ email, senha } = {}) {
-  const emailLimpo = typeof email === 'string' ? email.trim().toLowerCase() : '';
-  const usuario = REGEX_EMAIL.test(emailLimpo) ? await UsuarioModel.buscarPorEmail(emailLimpo) : null;
-  const senhaValida = usuario ? await bcrypt.compare(senha || '', usuario.senha_hash) : false;
-
-  if (!usuario || !senhaValida) {
-    const erro = new Error('Credenciais inválidas.');
-    erro.status = 401;
-    throw erro;
+  if (!email || !senha) {
+    throw new Error('Preencha todos os campos.');
   }
 
-  const token = jwt.sign(
-    { perfil: usuario.perfil },
-    jwtSecret,
-    { subject: String(usuario.id), expiresIn: '2h' }
-  );
+  const emailLimpo = email.trim().toLowerCase();
+  const usuario = await UsuarioModel.buscarPorEmail(emailLimpo);
+  
+  const senhaValida = usuario ? await bcrypt.compare(senha, usuario.senha_hash) : false;
+
+  if (!usuario || !senhaValida) {
+    throw new Error('E-mail ou senha incorretos.');
+  }
 
   return {
-    token,
-    tipo: 'Bearer',
-    expiraEm: '2h',
-    usuario: { id: usuario.id, nome: usuario.nome, perfil: usuario.perfil }
+    sucesso: true,
+    usuario: { 
+      id: usuario.id, 
+      nome_usuario: usuario.nome_usuario, 
+      email: usuario.email,
+      perfil: usuario.perfil
+    }
   };
 }
