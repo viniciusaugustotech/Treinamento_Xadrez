@@ -1,5 +1,3 @@
-oorganize o README: #Projeto_Xadrez
-
 TEMA: Treinamento
 
 PROJETO: Site de Treinamento em Xadrez
